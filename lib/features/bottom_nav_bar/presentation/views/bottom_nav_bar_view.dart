@@ -1,3 +1,4 @@
+import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/features/Transictions/presentation/views/transictions_view.dart';
 import 'package:finance_wise/features/analysis/presentation/views/analysis_view.dart';
@@ -5,6 +6,7 @@ import 'package:finance_wise/features/categories/presentation/views/categories_v
 import 'package:finance_wise/features/home/presentation/views/home_view.dart';
 import 'package:finance_wise/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BottomNavBarView extends StatefulWidget {
   const BottomNavBarView({super.key});
@@ -50,30 +52,36 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
             });
           },
           items: [
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              activeIcon: ActiveIcon(icon: Icons.home),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.svgsHome, width: 26),
+              activeIcon: const ActiveIcon(icon: Assets.svgsHome, width: 27),
               label: 'Home',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.analytics),
-              activeIcon: ActiveIcon(icon: Icons.analytics),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.svgsAnalysis, width: 30),
+              activeIcon: const ActiveIcon(icon: Assets.svgsAnalysis),
               label: 'Analysis',
             ),
 
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.transform),
-              activeIcon: ActiveIcon(icon: Icons.compare_arrows_outlined),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.svgsTransaction, width: 32),
+              activeIcon: const ActiveIcon(
+                icon: Assets.svgsTransaction,
+                width: 33,
+              ),
               label: 'Transactions',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              activeIcon: ActiveIcon(icon: Icons.category),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.svgsCategorY, width: 28),
+              activeIcon: const ActiveIcon(
+                icon: Assets.svgsCategorY,
+                width: 28,
+              ),
               label: 'Categories',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              activeIcon: ActiveIcon(icon: Icons.person),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(Assets.svgsPROFILE, width: 21),
+              activeIcon: const ActiveIcon(icon: Assets.svgsPROFILE, width: 22),
               label: 'Profile',
             ),
           ],
@@ -84,17 +92,18 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
 }
 
 class ActiveIcon extends StatelessWidget {
-  const ActiveIcon({super.key, required this.icon});
-  final IconData icon;
+  const ActiveIcon({super.key, required this.icon, this.width});
+  final String icon;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: const BoxDecoration(
         color: ColorsManager.mainGreen,
         borderRadius: BorderRadius.all(Radius.circular(18.0)),
       ),
-      child: Icon(icon, size: 30),
+      child: SvgPicture.asset(icon, width: width ?? 30),
     );
   }
 }
