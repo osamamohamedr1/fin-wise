@@ -6,7 +6,10 @@ class CategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Categories')),
+      appBar: AppBar(
+        title: const Text('Categories'),
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Text(
           'Welcome to the Finance Tracker Categories Page',

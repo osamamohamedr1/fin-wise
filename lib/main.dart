@@ -6,5 +6,5 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox(themeBox);
-  runApp(FinanceTracker());
+  runApp(const FinanceTracker());
 }

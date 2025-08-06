@@ -1,42 +1,54 @@
+import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getLightTheme() {
   return ThemeData(
-    iconTheme: IconThemeData(color: Colors.black),
-    scaffoldBackgroundColor: Colors.black,
+    iconTheme: const IconThemeData(color: ColorsManager.darkIcon),
+    scaffoldBackgroundColor: ColorsManager.mainGreen,
     brightness: Brightness.light,
-    primaryColor: Colors.black,
-    colorScheme: ColorScheme.light(
-      primary: Colors.black,
-      secondary: Colors.black,
+    primaryColor: ColorsManager.mainGreen,
+    colorScheme: const ColorScheme.light(
+      primary: ColorsManager.mainGreen,
+      secondary: ColorsManager.blue,
     ),
-    appBarTheme: AppBarTheme(backgroundColor: Colors.black),
-    textTheme: TextTheme(
+    appBarTheme: const AppBarTheme(
+      backgroundColor: ColorsManager.mainGreen,
+      iconTheme: IconThemeData(color: ColorsManager.darkIcon),
+      titleTextStyle: TextStyle(
+        color: ColorsManager.darkIcon,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
-        color: Colors.black,
+        color: ColorsManager.darkIcon,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
       titleMedium: TextStyle(
-        color: Colors.black,
+        color: ColorsManager.darkIcon,
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       titleSmall: TextStyle(
-        color: Colors.black,
+        color: ColorsManager.darkIcon,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
-      bodyLarge: TextStyle(color: Colors.black, fontSize: 18),
-      bodyMedium: TextStyle(color: Colors.black, fontSize: 16),
+      bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18),
+      bodyMedium: TextStyle(color: ColorsManager.darkIcon, fontSize: 16),
       bodySmall: TextStyle(color: Colors.grey, fontSize: 14),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      elevation: 10,
-      selectedIconTheme: IconThemeData(size: 28),
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.grey,
-      backgroundColor: Colors.white,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      elevation: 0,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+      selectedIconTheme: IconThemeData(size: 30),
+      selectedItemColor: ColorsManager.darkIcon,
+      unselectedItemColor: ColorsManager.darkIcon,
+      backgroundColor: Colors.transparent,
     ),
   );
 }

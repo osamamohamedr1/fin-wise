@@ -1,25 +1,26 @@
+import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getDarkTheme() {
   return ThemeData(
-    iconTheme: IconThemeData(color: Colors.black),
-    scaffoldBackgroundColor: Colors.black,
+    iconTheme: const IconThemeData(color: ColorsManager.mainGreen),
+    scaffoldBackgroundColor: ColorsManager.darkBackground,
     brightness: Brightness.dark,
-    primaryColor: Colors.black,
-    colorScheme: ColorScheme.dark(
-      primary: Colors.black,
-      secondary: Colors.black,
+    primaryColor: ColorsManager.mainGreen,
+    colorScheme: const ColorScheme.dark(
+      primary: ColorsManager.mainGreen,
+      secondary: ColorsManager.lightGreen,
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: Colors.black,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: ColorsManager.darkBackground,
       titleTextStyle: TextStyle(
         color: Colors.white,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: IconThemeData(color: ColorsManager.lightGreen),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
         color: Colors.white,
         fontSize: 30,
@@ -39,11 +40,13 @@ ThemeData getDarkTheme() {
       bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
       bodySmall: TextStyle(color: Colors.white70, fontSize: 14),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 5,
-      selectedItemColor: Colors.black,
+      selectedItemColor: ColorsManager.mainGreen,
       unselectedItemColor: Colors.white70,
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsManager.darkCard,
+      selectedIconTheme: IconThemeData(color: ColorsManager.mainGreen),
+      unselectedIconTheme: IconThemeData(color: Colors.white70),
     ),
   );
 }
