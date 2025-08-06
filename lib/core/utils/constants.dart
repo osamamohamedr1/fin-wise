@@ -1,0 +1,9 @@
+const String themeBox = 'themeBox';
+const String transactionsBox = 'transactionsBox';
+const String categoriesBox = 'categoriesBox';
+const String budgetBox = 'budgetBox';
+const String reportsBox = 'reportsBox';
+const String settingsBox = 'settingsBox';
+const String profileBox = 'profileBox';
+const String analysisBox = 'analysisBox';
+const String userBox = 'userBox';
