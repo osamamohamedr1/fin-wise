@@ -32,6 +32,13 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
         height: MediaQuery.sizeOf(context).height / 8,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 4,
+              offset: Offset(0, 4),
+              color: Colors.black38,
+            ),
+          ],
           color: ColorsManager.lightGreen,
           borderRadius: BorderRadius.vertical(top: Radius.circular(50.0)),
         ),
