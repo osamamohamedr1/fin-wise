@@ -20,6 +20,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: IndexedStack(
         index: _selectedIndex,
         children: const [
@@ -32,7 +33,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
       ),
       bottomNavigationBar: Container(
         height: MediaQuery.sizeOf(context).height / 8,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -42,7 +43,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
             ),
           ],
           color: ColorsManager.lightGreen,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(50.0)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(60.0)),
         ),
         child: BottomNavigationBar(
           currentIndex: _selectedIndex,

@@ -12,9 +12,9 @@ class IncomeExpensesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.sizeOf(context).width * .85,
+      width: MediaQuery.sizeOf(context).width * .8,
       child: Column(
-        spacing: 20,
+        spacing: 5,
         children: [
           IncomeExpensesNumber(),
           Stack(
@@ -35,6 +35,7 @@ class IncomeExpensesSection extends StatelessWidget {
                 top: 4,
                 child: Text(
                   '\$20,000',
+
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: ColorsManager.darkIcon,
                   ),
@@ -50,9 +51,13 @@ class IncomeExpensesSection extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: SvgPicture.asset(Assets.svgsCheck, width: 16),
               ),
-              Text(
-                LocaleKeys.percentage_tip.tr(),
-                style: Theme.of(context).textTheme.bodyMedium,
+              Flexible(
+                child: Text(
+                  LocaleKeys.percentage_tip.tr(),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
             ],
           ),

@@ -18,6 +18,7 @@ class TitleAndNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 5,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -33,7 +34,7 @@ class TitleAndNumber extends StatelessWidget {
                 width: 14,
               ),
             ),
-            Text(title, style: Theme.of(context).textTheme.bodySmall),
+            Text(title, style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         Text(

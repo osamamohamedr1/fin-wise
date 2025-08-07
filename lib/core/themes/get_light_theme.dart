@@ -1,5 +1,6 @@
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData getLightTheme() {
   return ThemeData(
@@ -12,44 +13,44 @@ ThemeData getLightTheme() {
       primary: ColorsManager.mainGreen,
       secondary: ColorsManager.blue,
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: ColorsManager.mainGreen,
       iconTheme: IconThemeData(color: ColorsManager.darkIcon),
       titleTextStyle: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 20,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       //
       titleLarge: TextStyle(
         color: Colors.white,
-        fontSize: 24,
+        fontSize: 24.sp,
         fontWeight: FontWeight.bold,
       ),
       //
       titleMedium: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 22,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w600,
       ),
       titleSmall: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 20,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
       ),
-      bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18),
+      bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18.sp),
 
       bodyMedium: TextStyle(
         color: ColorsManager.darkBackground,
-        fontSize: 16,
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
       ),
       //
       bodySmall: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 14,
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
       ),
     ),

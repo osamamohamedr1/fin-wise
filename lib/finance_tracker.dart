@@ -5,6 +5,7 @@ import 'package:finance_wise/core/themes/app_themes.dart';
 import 'package:finance_wise/features/profile/presentation/manger/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FinanceTracker extends StatelessWidget {
   const FinanceTracker({super.key});
@@ -15,15 +16,23 @@ class FinanceTracker extends StatelessWidget {
       create: (context) => ThemeCubit()..loadTheme(),
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeState) {
-          return MaterialApp(
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            themeMode: themeState,
-            theme: AppThemes.lightTheme,
-            darkTheme: AppThemes.darkTheme,
-            initialRoute: Routes.bottomNavBar,
-            onGenerateRoute: onGenerateRoute,
+          return ScreenUtilInit(
+            designSize: const Size(430, 932),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            builder: (_, child) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+                themeMode: themeState,
+                theme: AppThemes.lightTheme,
+                darkTheme: AppThemes.darkTheme,
+                initialRoute: Routes.bottomNavBar,
+                onGenerateRoute: onGenerateRoute,
+              );
+            },
           );
         },
       ),
