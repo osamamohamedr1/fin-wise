@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,10 +14,13 @@ class HomeView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi, Welcome Back',
+              LocaleKeys.welcome.tr(),
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            Text('Good Morning', style: Theme.of(context).textTheme.bodyMedium),
+            Text(
+              LocaleKeys.quote.tr(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ],
         ),
         actions: [

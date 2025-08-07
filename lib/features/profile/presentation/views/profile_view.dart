@@ -1,3 +1,4 @@
+import 'package:finance_wise/features/profile/presentation/views/settings_view.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
@@ -10,12 +11,7 @@ class ProfileView extends StatelessWidget {
         title: const Text('Profile'),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Text(
-          'Profile View',
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      ),
+      body: SettingsView(),
     );
   }
 }

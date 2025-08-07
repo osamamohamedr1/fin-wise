@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/routing/app_router.dart';
 import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/core/themes/app_themes.dart';
@@ -15,6 +16,9 @@ class FinanceTracker extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeState) {
           return MaterialApp(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             themeMode: themeState,
             theme: AppThemes.lightTheme,
             darkTheme: AppThemes.darkTheme,
