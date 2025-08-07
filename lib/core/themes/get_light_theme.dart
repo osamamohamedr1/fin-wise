@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 ThemeData getLightTheme() {
   return ThemeData(
+    fontFamily: 'Poppins',
     iconTheme: const IconThemeData(color: ColorsManager.darkIcon),
     scaffoldBackgroundColor: ColorsManager.mainGreen,
     brightness: Brightness.light,
@@ -23,8 +24,8 @@ ThemeData getLightTheme() {
     textTheme: const TextTheme(
       titleLarge: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
       ),
       titleMedium: TextStyle(
         color: ColorsManager.darkIcon,

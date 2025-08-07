@@ -53,8 +53,8 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(Assets.svgsHome, width: 26),
-              activeIcon: const ActiveIcon(icon: Assets.svgsHome, width: 27),
+              icon: SvgPicture.asset(Assets.svgsHome, width: 25),
+              activeIcon: const ActiveIcon(icon: Assets.svgsHome, width: 25),
               label: 'Home',
             ),
             BottomNavigationBarItem(

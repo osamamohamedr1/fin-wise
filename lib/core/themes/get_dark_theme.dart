@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 ThemeData getDarkTheme() {
   return ThemeData(
+    fontFamily: 'Poppins',
     iconTheme: const IconThemeData(color: ColorsManager.mainGreen),
     scaffoldBackgroundColor: ColorsManager.darkBackground,
     brightness: Brightness.dark,
