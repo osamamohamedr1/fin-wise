@@ -1,4 +1,29 @@
 {
   "welcome": "مرحبًا، سعيدون بعودتك",
-  "quote": "تحكم في المال، لا تطارده."
+   "quote": "تحكم في المال، لا تطارده.",
+  "total_balance": "إجمالي الرصيد",
+  "total_expense": "إجمالي المصروفات",
+  "income": "الدخل",
+  "expense": "المصروفات",
+  "on_goals": "مدخرات الأهداف",
+  "revenue_last_week": "الإيرادات الأسبوع الماضي",
+  "food_last_week": "الطعام الأسبوع الماضي",
+  "daily": "يومي",
+  "weekly": "أسبوعي",
+  "monthly": "شهري",
+  "transactions": "المعاملات",
+  "see_all": "عرض الكل",
+  "account_balance": "رصيد الحساب",
+  "transaction": "معاملة",
+  "salary": "الراتب",
+  "groceries": "البقالة",
+  "rent": "الإيجار",
+  "transport": "النقل",
+  "food": "الطعام",
+  "dinner": "عشاء",
+  "pantry": "مخزن",
+  "fuel": "الوقود",
+  "monthly_tag": "شهري",
+
+  "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا."
 }

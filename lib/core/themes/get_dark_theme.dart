@@ -22,15 +22,16 @@ ThemeData getDarkTheme() {
       iconTheme: IconThemeData(color: ColorsManager.lightGreen),
     ),
     textTheme: const TextTheme(
+      //
       titleLarge: TextStyle(
         color: Colors.white,
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       titleMedium: TextStyle(
         color: Colors.white,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
       ),
       titleSmall: TextStyle(
         color: Colors.white,
@@ -39,7 +40,12 @@ ThemeData getDarkTheme() {
       ),
       bodyLarge: TextStyle(color: Colors.white, fontSize: 18),
       bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
-      bodySmall: TextStyle(color: Colors.white70, fontSize: 14),
+      //
+      bodySmall: TextStyle(
+        color: Colors.white70,
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 5,

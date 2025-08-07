@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/features/home/presentation/views/widgets/income_expenses_section.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class HomeView extends StatelessWidget {
           children: [
             Text(
               LocaleKeys.welcome.tr(),
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
               LocaleKeys.quote.tr(),
@@ -45,7 +46,13 @@ class HomeView extends StatelessWidget {
 
         automaticallyImplyLeading: false,
       ),
-      body: const CustomScrollView(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [IncomeExpensesSection()],
+        ),
+      ),
     );
   }
 }

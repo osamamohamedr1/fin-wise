@@ -5,5 +5,29 @@
 abstract class  LocaleKeys {
   static const welcome = 'welcome';
   static const quote = 'quote';
+  static const total_balance = 'total_balance';
+  static const total_expense = 'total_expense';
+  static const income = 'income';
+  static const expense = 'expense';
+  static const on_goals = 'on_goals';
+  static const revenue_last_week = 'revenue_last_week';
+  static const food_last_week = 'food_last_week';
+  static const daily = 'daily';
+  static const weekly = 'weekly';
+  static const monthly = 'monthly';
+  static const transactions = 'transactions';
+  static const see_all = 'see_all';
+  static const account_balance = 'account_balance';
+  static const transaction = 'transaction';
+  static const salary = 'salary';
+  static const groceries = 'groceries';
+  static const rent = 'rent';
+  static const transport = 'transport';
+  static const food = 'food';
+  static const dinner = 'dinner';
+  static const pantry = 'pantry';
+  static const fuel = 'fuel';
+  static const monthly_tag = 'monthly_tag';
+  static const percentage_tip = 'percentage_tip';
 
 }

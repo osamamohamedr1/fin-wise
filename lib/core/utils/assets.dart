@@ -26,6 +26,10 @@ class Assets {
   /// assets/svgs/CategorY.svg
   static const String svgsCategorY = "assets/svgs/CategorY.svg";
 
+  /// Assets for svgsCheck
+  /// assets/svgs/check.svg
+  static const String svgsCheck = "assets/svgs/check.svg";
+
   /// Assets for svgsExpense
   /// assets/svgs/Expense.svg
   static const String svgsExpense = "assets/svgs/Expense.svg";

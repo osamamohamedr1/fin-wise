@@ -1,6 +1,29 @@
 {
-  
   "welcome": "Hi, Welcome Back",
-  "quote": "Control money, don’t chase it."
-
+ "quote": "Control money, don’t chase it.",
+  "total_balance": "Total Balance",
+  "total_expense": "Total Expense",
+  "income": "Income",
+  "expense": "Expense",
+  "on_goals": "Savings On Goals",
+  "revenue_last_week": "Revenue Last Week",
+  "food_last_week": "Food Last Week",
+  "daily": "Daily",
+  "weekly": "Weekly",
+  "monthly": "Monthly",
+  "transactions": "Transactions",
+  "see_all": "See all",
+  "account_balance": "Account Balance",
+  "transaction": "Transaction",
+  "salary": "Salary",
+  "groceries": "Groceries",
+  "rent": "Rent",
+  "transport": "Transport",
+  "food": "Food",
+  "dinner": "Dinner",
+  "pantry": "Pantry",
+  "fuel": "Fuel",
+  "monthly_tag": "Monthly",
+ 
+  "percentage_tip": "30% Of Your Expenses, Looks Good."
 }

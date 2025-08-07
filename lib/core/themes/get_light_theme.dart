@@ -22,15 +22,17 @@ ThemeData getLightTheme() {
       ),
     ),
     textTheme: const TextTheme(
+      //
       titleLarge: TextStyle(
-        color: ColorsManager.darkIcon,
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-      ),
-      titleMedium: TextStyle(
-        color: ColorsManager.darkIcon,
+        color: Colors.white,
         fontSize: 24,
         fontWeight: FontWeight.bold,
+      ),
+      //
+      titleMedium: TextStyle(
+        color: ColorsManager.darkIcon,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
       ),
       titleSmall: TextStyle(
         color: ColorsManager.darkIcon,
@@ -38,8 +40,18 @@ ThemeData getLightTheme() {
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18),
-      bodyMedium: TextStyle(color: ColorsManager.darkIcon, fontSize: 16),
-      bodySmall: TextStyle(color: Colors.grey, fontSize: 14),
+
+      bodyMedium: TextStyle(
+        color: ColorsManager.darkBackground,
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+      ),
+      //
+      bodySmall: TextStyle(
+        color: ColorsManager.darkIcon,
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 0,
