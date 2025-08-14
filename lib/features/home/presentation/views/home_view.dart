@@ -3,7 +3,7 @@ import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/home/presentation/views/widgets/filter_latest_transiction.dart';
 import 'package:finance_wise/features/home/presentation/views/widgets/home_info_container.dart';
-import 'package:finance_wise/features/home/presentation/views/widgets/income_expenses_section.dart';
+import 'package:finance_wise/core/shared/widgets/income_expenses_section.dart';
 import 'package:finance_wise/core/shared/widgets/transactions_list.dart';
 import 'package:finance_wise/features/home/presentation/views/widgets/white_container.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';

@@ -29,6 +29,11 @@ abstract class  LocaleKeys {
   static const pantry = 'pantry';
   static const fuel = 'fuel';
   static const monthly_tag = 'monthly_tag';
+  static const medical = 'medical';
+  static const savings = 'savings';
+  static const entertainment = 'entertainment';
+  static const gifts = 'gifts';
+  static const more = 'more';
   static const percentage_tip = 'percentage_tip';
 
 }

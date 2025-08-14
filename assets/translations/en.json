@@ -26,6 +26,10 @@
   "pantry": "Pantry",
   "fuel": "Fuel",
   "monthly_tag": "Monthly",
- 
+  "medical": "Medical",
+  "savings": "Savings",
+  "entertainment": "Entertainment",
+  "gifts": "Gifts",
+  "more": "More",
   "percentage_tip": "30% Of Your Expenses, Looks Good."
 }

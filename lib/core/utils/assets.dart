@@ -70,6 +70,10 @@ class Assets {
   /// assets/svgs/medical.svg
   static const String svgsMedical = "assets/svgs/medical.svg";
 
+  /// Assets for svgsMore
+  /// assets/svgs/more.svg
+  static const String svgsMore = "assets/svgs/more.svg";
+
   /// Assets for svgsNewHome
   /// assets/svgs/new_home.svg
   static const String svgsNewHome = "assets/svgs/new_home.svg";
