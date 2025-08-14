@@ -20,7 +20,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorsManager.lightBackground,
       body: IndexedStack(
         index: _selectedIndex,
         children: const [

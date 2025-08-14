@@ -12,6 +12,8 @@
   "weekly": "Weekly",
   "monthly": "Monthly",
   "transactions": "Transactions",
+  "latest_transactions": "Latest Transactions",
+
   "see_all": "See all",
   "account_balance": "Account Balance",
   "transaction": "Transaction",

@@ -7,6 +7,7 @@ class WhiteContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         color: ColorsManager.lightBackground,

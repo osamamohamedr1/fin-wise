@@ -8,12 +8,11 @@ class HomeInfoContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.85,
-      height: MediaQuery.sizeOf(context).height * 0.20,
+      height: MediaQuery.sizeOf(context).height * 0.2,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: ColorsManager.mainGreen,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

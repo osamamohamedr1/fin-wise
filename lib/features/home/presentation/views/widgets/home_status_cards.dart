@@ -28,13 +28,15 @@ class HomeStatusCards extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 leading: SvgPicture.asset(Assets.svgsSalary, width: 31),
                 title: Text(
-                  'Revenue Last Week',
-                  style: TextStyle(fontSize: 12),
+                  LocaleKeys.revenue_last_week.tr(),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 subtitle: Text(
                   '\$ 40,000.00',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
 

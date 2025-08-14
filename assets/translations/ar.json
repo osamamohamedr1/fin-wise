@@ -12,6 +12,8 @@
   "weekly": "أسبوعي",
   "monthly": "شهري",
   "transactions": "المعاملات",
+    "latest_transactions": "أحدث المعاملات",
+
   "see_all": "عرض الكل",
   "account_balance": "رصيد الحساب",
   "transaction": "معاملة",

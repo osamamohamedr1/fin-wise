@@ -9,6 +9,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox(themeBox);
+
   runApp(
     EasyLocalization(
       path: 'assets/translations',

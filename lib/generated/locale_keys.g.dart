@@ -16,6 +16,7 @@ abstract class  LocaleKeys {
   static const weekly = 'weekly';
   static const monthly = 'monthly';
   static const transactions = 'transactions';
+  static const latest_transactions = 'latest_transactions';
   static const see_all = 'see_all';
   static const account_balance = 'account_balance';
   static const transaction = 'transaction';
