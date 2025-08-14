@@ -38,7 +38,7 @@ class TransactionsList extends StatelessWidget {
       TransactionModel(
         id: '1',
         title: LocaleKeys.salary.tr(),
-        category: 'Income',
+        category: LocaleKeys.income.tr(),
         amount: 5000,
         date: DateTime.now().subtract(const Duration(days: 1)),
         isExpense: false,
@@ -48,7 +48,7 @@ class TransactionsList extends StatelessWidget {
       TransactionModel(
         id: '2',
         title: LocaleKeys.groceries.tr(),
-        category: 'Food',
+        category: LocaleKeys.food.tr(),
         amount: 150,
         date: DateTime.now().subtract(const Duration(days: 2)),
         isExpense: true,
@@ -58,7 +58,7 @@ class TransactionsList extends StatelessWidget {
       TransactionModel(
         id: '3',
         title: LocaleKeys.fuel.tr(),
-        category: 'Transport',
+        category: LocaleKeys.transport.tr(),
         amount: 80,
         date: DateTime.now().subtract(const Duration(days: 2)),
         isExpense: true,
@@ -68,7 +68,7 @@ class TransactionsList extends StatelessWidget {
       TransactionModel(
         id: '4',
         title: LocaleKeys.dinner.tr(),
-        category: 'Food',
+        category: LocaleKeys.food.tr(),
         amount: 45,
         date: DateTime.now().subtract(const Duration(days: 3)),
         isExpense: true,
@@ -78,7 +78,7 @@ class TransactionsList extends StatelessWidget {
       TransactionModel(
         id: '5',
         title: LocaleKeys.rent.tr(),
-        category: 'Housing',
+        category: LocaleKeys.rent.tr(),
         amount: 1200,
         date: DateTime.now().subtract(const Duration(days: 5)),
         isExpense: true,

@@ -21,36 +21,36 @@ class TransactionListItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
-        spacing: 12,
+        spacing: 15,
         children: [
           TransictionIcon(transaction: transaction),
-          Expanded(
-            flex: 2,
-            child: Column(
-              spacing: 4,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  transaction.title,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                  ),
+          Column(
+            spacing: 4,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                transaction.title,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
                 ),
+              ),
 
-                Text(
-                  formatDate(transaction.date),
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: ColorsManager.blue,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 11,
-                  ),
+              Text(
+                formatDate(transaction.date),
+
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: ColorsManager.blue,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 11,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           SvgPicture.asset(Assets.svgsVline),
-          Expanded(child: Text(transaction.category)),
+          Expanded(
+            child: Text(transaction.category, textAlign: TextAlign.center),
+          ),
           SvgPicture.asset(Assets.svgsVline),
           Expanded(
             child: Directionality(

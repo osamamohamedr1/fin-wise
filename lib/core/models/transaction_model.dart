@@ -34,25 +34,25 @@ class TransactionModel {
     return '${date.day}/${date.month}/${date.year}';
   }
 
-  // Helper method to get frequency display
-  String get displayFrequency {
-    if (frequency != null) return frequency!;
+  // // Helper method to get frequency display
+  // String get displayFrequency {
+  //   if (frequency != null) return frequency!;
 
-    // Auto-determine frequency based on category/title
-    switch (category.toLowerCase()) {
-      case 'salary':
-      case 'rent':
-      case 'housing':
-        return 'Monthly';
-      case 'groceries':
-      case 'fuel':
-        return 'Weekly';
-      case 'food':
-      case 'dinner':
-      case 'entertainment':
-        return 'Daily';
-      default:
-        return 'One-time';
-    }
-  }
+  //   // Auto-determine frequency based on category/title
+  //   switch (category.toLowerCase()) {
+  //     case 'salary':
+  //     case 'rent':
+  //     case 'housing':
+  //       return 'Monthly';
+  //     case 'groceries':
+  //     case 'fuel':
+  //       return 'Weekly';
+  //     case 'food':
+  //     case 'dinner':
+  //     case 'entertainment':
+  //       return 'Daily';
+  //     default:
+  //       return 'One-time';
+  //   }
+  // }
 }

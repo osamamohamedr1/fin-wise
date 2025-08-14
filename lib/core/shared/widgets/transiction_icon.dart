@@ -16,7 +16,7 @@ class TransictionIcon extends StatelessWidget {
       width: 50.w,
       height: 55.h,
       decoration: BoxDecoration(
-        color: ColorsManager.lightBlue,
+        color: _getBackgroundColor(transaction.title),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
@@ -24,7 +24,7 @@ class TransictionIcon extends StatelessWidget {
           transaction.iconPath ?? _getDefaultIcon(transaction.category),
           width: 24,
           height: 24,
-          colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
         ),
       ),
     );
@@ -60,5 +60,16 @@ String _getDefaultIcon(String category) {
       return Assets.svgsCar;
     default:
       return Assets.svgsTransaction;
+  }
+}
+
+Color _getBackgroundColor(String category) {
+  switch (category.toLowerCase()) {
+    case 'salary':
+    case 'savings':
+    case 'rent':
+      return ColorsManager.blue;
+    default:
+      return ColorsManager.lightBlue;
   }
 }
