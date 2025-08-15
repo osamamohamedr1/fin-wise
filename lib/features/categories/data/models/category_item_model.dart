@@ -19,12 +19,12 @@ const List<CategoryItemModel> categoriesList = [
   CategoryItemModel(
     icon: Assets.svgsFood,
     label: LocaleKeys.food,
-    color: ColorsManager.lightBlue,
+    color: ColorsManager.blue,
   ),
   CategoryItemModel(
     icon: Assets.svgsTransport,
     label: LocaleKeys.transport,
-    color: ColorsManager.blue,
+    color: ColorsManager.lightBlue,
   ),
   CategoryItemModel(
     icon: Assets.svgsMedical,
@@ -34,7 +34,7 @@ const List<CategoryItemModel> categoriesList = [
   CategoryItemModel(
     icon: Assets.svgsGroceries,
     label: LocaleKeys.groceries,
-    color: ColorsManager.lightBlue,
+    color: ColorsManager.mainGreen,
   ),
   CategoryItemModel(
     icon: Assets.svgsRent,
@@ -44,7 +44,7 @@ const List<CategoryItemModel> categoriesList = [
   CategoryItemModel(
     icon: Assets.svgsGift,
     label: LocaleKeys.gifts,
-    color: ColorsManager.mainGreen,
+    color: ColorsManager.blue,
   ),
   CategoryItemModel(
     icon: Assets.svgsSavings,
@@ -59,6 +59,6 @@ const List<CategoryItemModel> categoriesList = [
   CategoryItemModel(
     icon: Assets.svgsMore,
     label: LocaleKeys.more,
-    color: ColorsManager.lightBlue,
+    color: ColorsManager.mainGreen,
   ),
 ];

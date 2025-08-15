@@ -49,7 +49,11 @@ class TransactionListItem extends StatelessWidget {
           ),
           SvgPicture.asset(Assets.svgsVline),
           Expanded(
-            child: Text(transaction.category, textAlign: TextAlign.center),
+            child: Text(
+              transaction.category,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           SvgPicture.asset(Assets.svgsVline),
           Expanded(

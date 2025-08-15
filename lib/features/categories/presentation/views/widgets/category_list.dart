@@ -1,5 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/features/categories/data/models/category_item_model.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_item.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class CategoryGrid extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           mainAxisSpacing: 16,
-          crossAxisSpacing: 20,
+          crossAxisSpacing: 16,
           mainAxisExtent: MediaQuery.sizeOf(context).width * 0.34,
         ),
         itemBuilder: (context, index) {
@@ -33,10 +34,5 @@ class CategoryGrid extends StatelessWidget {
 }
 
 void _onCategoryTap(BuildContext context, CategoryItemModel category) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text('${category.label.tr()} selected'),
-      duration: const Duration(seconds: 1),
-    ),
-  );
+  context.pushNamed(Routes.categoryExpensesDetails);
 }
