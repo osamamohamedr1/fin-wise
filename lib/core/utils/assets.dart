@@ -22,6 +22,10 @@ class Assets {
   /// assets/svgs/Analysis.svg
   static const String svgsAnalysis = "assets/svgs/Analysis.svg";
 
+  /// Assets for svgsCalender
+  /// assets/svgs/calender.svg
+  static const String svgsCalender = "assets/svgs/calender.svg";
+
   /// Assets for svgsCar
   /// assets/svgs/Car.svg
   static const String svgsCar = "assets/svgs/Car.svg";

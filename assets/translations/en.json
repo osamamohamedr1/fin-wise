@@ -13,7 +13,6 @@
   "monthly": "Monthly",
   "transactions": "Transactions",
   "latest_transactions": "Latest Transactions",
-
   "see_all": "See all",
   "account_balance": "Account Balance",
   "transaction": "Transaction",
@@ -31,5 +30,19 @@
   "entertainment": "Entertainment",
   "gifts": "Gifts",
   "more": "More",
+  "add_expenses": "Add Expenses",
+  "other":"Other",
+  "amount":"Amount",
+    "enter_amount": "Enter Amount",
+
+  "expense_title": "Expense Title",
+  "enter_message": "Enter Message",
+  "expense_title_hint": "e.g. Dinner, Taxi",
+
+  "date": "Date",
+  "category": "Category",
+  "save_expense": "Save Expense",
+  "please_fill_fields": "Please fill in all required fields",
+
   "percentage_tip": "30% Of Your Expenses, Looks Good."
 }

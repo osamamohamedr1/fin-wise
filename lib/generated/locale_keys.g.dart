@@ -34,6 +34,16 @@ abstract class  LocaleKeys {
   static const entertainment = 'entertainment';
   static const gifts = 'gifts';
   static const more = 'more';
+  static const amount = 'amount';
+  static const enter_amount = 'enter_amount';
+  static const expense_title_hint = 'expense_title_hint';
+  static const add_expenses = 'add_expenses';
+  static const expense_title = 'expense_title';
+  static const enter_message = 'enter_message';
+  static const date = 'date';
+  static const category = 'category';
+  static const save_expense = 'save_expense';
+  static const please_fill_fields = 'please_fill_fields';
   static const percentage_tip = 'percentage_tip';
 
 }

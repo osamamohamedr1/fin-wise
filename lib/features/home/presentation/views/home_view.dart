@@ -5,7 +5,7 @@ import 'package:finance_wise/features/home/presentation/views/widgets/filter_lat
 import 'package:finance_wise/features/home/presentation/views/widgets/home_info_container.dart';
 import 'package:finance_wise/core/shared/widgets/income_expenses_section.dart';
 import 'package:finance_wise/core/shared/widgets/transactions_list.dart';
-import 'package:finance_wise/features/home/presentation/views/widgets/white_container.dart';
+import 'package:finance_wise/core/shared/widgets/white_container.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 

@@ -34,5 +34,5 @@ class CategoryGrid extends StatelessWidget {
 }
 
 void _onCategoryTap(BuildContext context, CategoryItemModel category) {
-  context.pushNamed(Routes.categoryExpensesDetails);
+  context.pushNamed(Routes.categoryExpensesDetails, arguments: category);
 }

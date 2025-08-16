@@ -31,6 +31,17 @@
   "entertainment": "ترفيه",
   "gifts": "هدايا",
   "more": "المزيد",
+  "other":"أخرى",
+  "amount":"المبلغ",
+  "enter_amount": "أدخل المبلغ",
 
+  "expense_title_hint": "مثال: عشاء، تاكسي",
+  "add_expenses": "إضافة مصاريف",
+  "expense_title": "عنوان المصروف",
+  "enter_message": "أدخل ملاحظة",
+  "date": "التاريخ",
+  "category": "الفئة",
+  "save_expense": "حفظ المصروف",
+  "please_fill_fields": "يرجى ملء جميع الحقول المطلوبة",
   "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا."
 }
