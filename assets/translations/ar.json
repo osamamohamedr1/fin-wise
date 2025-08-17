@@ -31,7 +31,6 @@
   "entertainment": "ترفيه",
   "gifts": "هدايا",
   "more": "المزيد",
-  "other":"أخرى",
   "amount":"المبلغ",
   "enter_amount": "أدخل المبلغ",
 
@@ -40,6 +39,11 @@
   "expense_title": "عنوان المصروف",
   "enter_message": "أدخل ملاحظة",
   "date": "التاريخ",
+  "pick_date": "اختر التاريخ",
+  "fother":"أخرى",
+
+
+
   "category": "الفئة",
   "save_expense": "حفظ المصروف",
   "please_fill_fields": "يرجى ملء جميع الحقول المطلوبة",

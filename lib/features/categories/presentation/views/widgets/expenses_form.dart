@@ -21,21 +21,20 @@ class ExpenseForm extends StatelessWidget {
       spacing: 8,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        verticalSpacing(1),
         titleText(context, LocaleKeys.amount.tr()),
         CustomTextField(
           hintText: LocaleKeys.enter_amount.tr(),
           controller: amountController,
           keyboardType: TextInputType.number,
         ),
-        verticalSpacing(8),
+        verticalSpacing(14),
         titleText(context, LocaleKeys.expense_title.tr()),
 
         CustomTextField(
           hintText: LocaleKeys.expense_title_hint.tr(),
           controller: titleController,
         ),
-        verticalSpacing(10),
+        verticalSpacing(14),
         CustomTextField(
           hintText: LocaleKeys.enter_message.tr(),
           controller: messageController,

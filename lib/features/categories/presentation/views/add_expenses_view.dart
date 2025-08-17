@@ -71,15 +71,16 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                       verticalSpacing(20),
                       titleText(context, LocaleKeys.date.tr()),
                       const SelectDateWidget(),
-                      verticalSpacing(8),
+                      verticalSpacing(12),
                       titleText(context, LocaleKeys.category.tr()),
                       const SelectCategoryRow(),
+                      verticalSpacing(8),
                       ExpenseForm(
                         amountController: amountController,
                         titleController: titleController,
                         messageController: messageController,
                       ),
-
+                      verticalSpacing(4),
                       Center(
                         child: ElevatedButton(
                           onPressed: () {

@@ -28,7 +28,8 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
+          color: ColorsManager.mainGreen,
           fontSize: 12,
         ),
         filled: true,

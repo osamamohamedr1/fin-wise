@@ -35,15 +35,16 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
         children: [
           Expanded(
             child: Text(
-              'Select Category',
+              selectedCategory?.tr() ?? 'Select Category',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w500,
+                color: ColorsManager.mainGreen,
                 fontSize: 12,
               ),
             ),
           ),
           DropdownButton<String>(
-            value: selectedCategory,
+            value: null,
             underline: const SizedBox.shrink(),
             items: categories
                 .map(

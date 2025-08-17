@@ -3,7 +3,6 @@ import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SelectDateWidget extends StatefulWidget {
@@ -33,10 +32,11 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                       'dd MMM, yyyy',
                       context.locale.languageCode,
                     ).format(selectedDate!)
-                  : LocaleKeys.date.tr(),
-              style: Theme.of(
-                context,
-              ).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+                  : LocaleKeys.pick_date.tr(),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontWeight: FontWeight.w500,
+                color: ColorsManager.mainGreen,
+              ),
             ),
           ),
 

@@ -58,7 +58,7 @@ const List<CategoryItemModel> categoriesList = [
   ),
   CategoryItemModel(
     icon: Assets.svgsMore,
-    label: LocaleKeys.more,
+    label: LocaleKeys.fother,
     color: ColorsManager.mainGreen,
   ),
 ];

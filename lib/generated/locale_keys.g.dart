@@ -41,6 +41,8 @@ abstract class  LocaleKeys {
   static const expense_title = 'expense_title';
   static const enter_message = 'enter_message';
   static const date = 'date';
+  static const pick_date = 'pick_date';
+  static const fother = 'fother';
   static const category = 'category';
   static const save_expense = 'save_expense';
   static const please_fill_fields = 'please_fill_fields';

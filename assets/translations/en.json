@@ -31,7 +31,6 @@
   "gifts": "Gifts",
   "more": "More",
   "add_expenses": "Add Expenses",
-  "other":"Other",
   "amount":"Amount",
     "enter_amount": "Enter Amount",
 
@@ -40,6 +39,11 @@
   "expense_title_hint": "e.g. Dinner, Taxi",
 
   "date": "Date",
+  "pick_date": "Pick Date",
+
+  "fother":"Other",
+
+
   "category": "Category",
   "save_expense": "Save Expense",
   "please_fill_fields": "Please fill in all required fields",
