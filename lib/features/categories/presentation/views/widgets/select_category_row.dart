@@ -21,6 +21,7 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
     LocaleKeys.groceries.tr(),
     LocaleKeys.gifts.tr(),
     LocaleKeys.rent.tr(),
+    LocaleKeys.fother.tr(),
   ];
 
   @override
@@ -35,11 +36,15 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
         children: [
           Expanded(
             child: Text(
-              selectedCategory?.tr() ?? 'Select Category',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.w500,
-                color: ColorsManager.mainGreen,
-                fontSize: 12,
+              selectedCategory?.tr() ?? LocaleKeys.select_category.tr(),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontWeight: selectedCategory == null
+                    ? FontWeight.normal
+                    : FontWeight.w500,
+                color: selectedCategory == null
+                    ? ColorsManager.mainGreen
+                    : ColorsManager.darkIcon,
+                fontSize: 14,
               ),
             ),
           ),

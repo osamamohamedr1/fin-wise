@@ -1,7 +1,8 @@
 import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/features/bottom_nav_bar/presentation/views/bottom_nav_bar_view.dart';
-import 'package:finance_wise/features/categories/data/models/category_item_model.dart';
+import 'package:finance_wise/core/models/category_item_model.dart';
 import 'package:finance_wise/features/categories/presentation/views/add_expenses_view.dart';
+import 'package:finance_wise/features/categories/presentation/views/add_saving_view.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_expenses_details.dart';
 import 'package:finance_wise/features/profile/presentation/views/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ Route onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => SettingsView());
     case Routes.addExpenses:
       return MaterialPageRoute(builder: (_) => AddExpensesView());
+    case Routes.savingsView:
+      return MaterialPageRoute(builder: (_) => AddSavingsView());
     case Routes.categoryExpensesDetails:
       final args = settings.arguments as CategoryItemModel;
       return MaterialPageRoute(

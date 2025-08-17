@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
-import 'package:finance_wise/features/categories/data/models/category_item_model.dart';
+import 'package:finance_wise/core/models/category_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

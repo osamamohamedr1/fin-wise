@@ -43,6 +43,11 @@
 
   "fother":"Other",
 
+    "select_category": "Select Category",
+  "wedding" :"Wedding",
+  "travel" :"Travel",
+  "new_home" :"New Home",
+  "car" :"Car",
 
   "category": "Category",
   "save_expense": "Save Expense",

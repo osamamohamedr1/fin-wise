@@ -15,6 +15,36 @@ class CategoryItemModel {
   });
 }
 
+const List<CategoryItemModel> savingsList = [
+  CategoryItemModel(
+    icon: Assets.svgsCar,
+    label: LocaleKeys.car,
+    color: ColorsManager.lightBlue,
+  ),
+  CategoryItemModel(
+    icon: Assets.svgsWeddingDay,
+    label: LocaleKeys.wedding,
+    color: ColorsManager.mainGreen,
+  ),
+
+  CategoryItemModel(
+    icon: Assets.svgsTravel,
+    label: LocaleKeys.travel,
+    color: ColorsManager.lightBlue,
+  ),
+  CategoryItemModel(
+    icon: Assets.svgsNewHome,
+    label: LocaleKeys.new_home,
+    color: ColorsManager.blue,
+  ),
+
+  CategoryItemModel(
+    icon: Assets.svgsMore,
+    label: LocaleKeys.fother,
+    color: ColorsManager.mainGreen,
+  ),
+];
+
 const List<CategoryItemModel> categoriesList = [
   CategoryItemModel(
     icon: Assets.svgsFood,
@@ -46,15 +76,16 @@ const List<CategoryItemModel> categoriesList = [
     label: LocaleKeys.gifts,
     color: ColorsManager.blue,
   ),
-  CategoryItemModel(
-    icon: Assets.svgsSavings,
-    label: LocaleKeys.savings,
-    color: ColorsManager.blue,
-  ),
+
   CategoryItemModel(
     icon: Assets.svgsEntertainment,
     label: LocaleKeys.entertainment,
     color: ColorsManager.lightBlue,
+  ),
+  CategoryItemModel(
+    icon: Assets.svgsSavings,
+    label: LocaleKeys.savings,
+    color: ColorsManager.blue,
   ),
   CategoryItemModel(
     icon: Assets.svgsMore,

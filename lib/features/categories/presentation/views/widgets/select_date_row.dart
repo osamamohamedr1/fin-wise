@@ -34,8 +34,12 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                     ).format(selectedDate!)
                   : LocaleKeys.pick_date.tr(),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.w500,
-                color: ColorsManager.mainGreen,
+                fontWeight: selectedDate == null
+                    ? FontWeight.normal
+                    : FontWeight.w500,
+                color: selectedDate == null
+                    ? ColorsManager.mainGreen
+                    : ColorsManager.darkIcon,
               ),
             ),
           ),

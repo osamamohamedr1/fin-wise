@@ -43,6 +43,11 @@ abstract class  LocaleKeys {
   static const date = 'date';
   static const pick_date = 'pick_date';
   static const fother = 'fother';
+  static const select_category = 'select_category';
+  static const wedding = 'wedding';
+  static const travel = 'travel';
+  static const new_home = 'new_home';
+  static const car = 'car';
   static const category = 'category';
   static const save_expense = 'save_expense';
   static const please_fill_fields = 'please_fill_fields';

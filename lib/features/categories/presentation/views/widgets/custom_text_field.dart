@@ -25,6 +25,11 @@ class CustomTextField extends StatelessWidget {
       readOnly: readOnly,
       maxLines: maxLines,
       keyboardType: keyboardType,
+      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        fontWeight: FontWeight.w500,
+        color: ColorsManager.darkIcon,
+        fontSize: 13,
+      ),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(

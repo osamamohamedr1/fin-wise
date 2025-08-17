@@ -4,7 +4,7 @@ import 'package:finance_wise/core/shared/widgets/income_expenses_section.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
-import 'package:finance_wise/features/categories/data/models/category_item_model.dart';
+import 'package:finance_wise/core/models/category_item_model.dart';
 import 'package:finance_wise/features/categories/data/repos/transaction_repository.dart';
 import 'package:finance_wise/features/categories/presentation/manger/cubit/category_expenses_cubit.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_expenses_list.dart';

@@ -41,7 +41,11 @@
   "date": "التاريخ",
   "pick_date": "اختر التاريخ",
   "fother":"أخرى",
-
+    "select_category": "اختر الفئة",
+   "wedding" :"زفاف",
+  "travel" :"سفر",
+  "new_home" :"منزل جديد",
+  "car" :"سيارة",
 
 
   "category": "الفئة",
