@@ -1,6 +1,6 @@
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
-import 'package:finance_wise/features/Transictions/presentation/views/transictions_view.dart';
+import 'package:finance_wise/features/transictions/presentation/views/transictions_view.dart';
 import 'package:finance_wise/features/analysis/presentation/views/analysis_view.dart';
 import 'package:finance_wise/features/categories/presentation/views/categories_view.dart';
 import 'package:finance_wise/features/home/presentation/views/home_view.dart';
@@ -26,7 +26,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
         children: const [
           HomeView(),
           AnalysisView(),
-          TransictionsView(),
+          TransactionsView(),
           CategoriesView(),
           ProfileView(),
         ],

@@ -50,6 +50,9 @@
   "car" :"Car",
 
   "category": "Category",
+  "categories": "Categories",
+  "analysis": "Analysis",
+
   "save_expense": "Save Expense",
   "please_fill_fields": "Please fill in all required fields",
 

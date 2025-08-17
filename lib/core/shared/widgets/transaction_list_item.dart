@@ -21,7 +21,7 @@ class TransactionListItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
-        spacing: 15,
+        spacing: 12,
         children: [
           TransictionIcon(transaction: transaction),
           Column(
@@ -41,17 +41,18 @@ class TransactionListItem extends StatelessWidget {
 
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: ColorsManager.blue,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   fontSize: 11,
                 ),
               ),
             ],
           ),
           SvgPicture.asset(Assets.svgsVline),
-          Expanded(
+          SizedBox(
+            width: MediaQuery.sizeOf(context).width / 7,
             child: Text(
               transaction.category,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               overflow: TextOverflow.ellipsis,
             ),
           ),

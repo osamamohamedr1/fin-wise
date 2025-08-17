@@ -37,15 +37,15 @@ ThemeData getLightTheme() {
       ),
       titleSmall: TextStyle(
         color: ColorsManager.darkIcon,
-        fontSize: 20.sp,
+        fontSize: 14.sp,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18.sp),
 
       bodyMedium: TextStyle(
         color: ColorsManager.darkBackground,
-        fontSize: 14.sp,
-        fontWeight: FontWeight.normal,
+        fontSize: 15.sp,
+        fontWeight: FontWeight.w500,
       ),
       //
       bodySmall: TextStyle(

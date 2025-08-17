@@ -47,8 +47,9 @@
   "new_home" :"منزل جديد",
   "car" :"سيارة",
 
-
+  "analysis": "التحليلات",
   "category": "الفئة",
+  "categories": "الفئات",
   "save_expense": "حفظ المصروف",
   "please_fill_fields": "يرجى ملء جميع الحقول المطلوبة",
   "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا."
