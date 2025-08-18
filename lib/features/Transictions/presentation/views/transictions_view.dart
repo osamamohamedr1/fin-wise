@@ -1,22 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finance_wise/core/models/transaction_model.dart';
+import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/core/shared/widgets/select_transiction_date_row.dart';
 import 'package:finance_wise/core/shared/widgets/transaction_list_item.dart';
-import 'package:finance_wise/core/shared/widgets/transactions_list.dart';
 import 'package:finance_wise/core/shared/widgets/white_container.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/transictions/presentation/views/widgets/total_balance_row.dart';
 import 'package:finance_wise/features/transictions/presentation/views/widgets/transaction_type_row.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionsView extends StatelessWidget {
   const TransactionsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<TransactionModel> transactions = getSampleTransactions();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -45,16 +43,24 @@ class TransactionsView extends StatelessWidget {
                     verticalSpacing(16),
                     SelectTransictionDate(),
                     verticalSpacing(8),
-                    Expanded(
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: transactions.length,
-                        itemBuilder: (context, index) {
-                          return TransactionListItem(
-                            transaction: transactions[index],
+                    BlocBuilder<TransactionsCubit, TransactionsState>(
+                      builder: (context, state) {
+                        if (state is TransactionsLoaded) {
+                          return Expanded(
+                            child: ListView.builder(
+                              padding: EdgeInsets.zero,
+                              itemCount: state.allTransactions.length,
+                              itemBuilder: (context, index) {
+                                return TransactionListItem(
+                                  transaction: state.allTransactions[index],
+                                );
+                              },
+                            ),
                           );
-                        },
-                      ),
+                        } else {
+                          return CircularProgressIndicator();
+                        }
+                      },
                     ),
                   ],
                 ),

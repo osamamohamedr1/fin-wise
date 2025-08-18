@@ -20,14 +20,14 @@ class TransactionTypeInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 8),
 
       decoration: BoxDecoration(
         color: isSelected ? ColorsManager.blue : ColorsManager.lightBackground,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
-        spacing: 6,
+        spacing: 4,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

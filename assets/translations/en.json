@@ -35,7 +35,7 @@
     "enter_amount": "Enter Amount",
 
   "expense_title": "Expense Title",
-  "enter_message": "Enter Message",
+  "enter_message": "Optional Enter Message",
   "expense_title_hint": "e.g. Dinner, Taxi",
 
   "date": "Date",

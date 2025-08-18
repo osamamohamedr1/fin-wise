@@ -6,15 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SelectDateWidget extends StatefulWidget {
-  const SelectDateWidget({super.key});
+  final DateTime? selectedDate;
+  final Function(DateTime?) onDateChanged;
+
+  const SelectDateWidget({
+    super.key,
+    required this.selectedDate,
+    required this.onDateChanged,
+  });
 
   @override
   State<SelectDateWidget> createState() => _SelectDateWidgetState();
 }
 
 class _SelectDateWidgetState extends State<SelectDateWidget> {
-  DateTime? selectedDate;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,17 +32,17 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
         children: [
           Expanded(
             child: Text(
-              selectedDate != null
+              widget.selectedDate != null
                   ? DateFormat(
                       'dd MMM, yyyy',
                       context.locale.languageCode,
-                    ).format(selectedDate!)
+                    ).format(widget.selectedDate!)
                   : LocaleKeys.pick_date.tr(),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: selectedDate == null
+                fontWeight: widget.selectedDate == null
                     ? FontWeight.normal
                     : FontWeight.w500,
-                color: selectedDate == null
+                color: widget.selectedDate == null
                     ? ColorsManager.mainGreen
                     : ColorsManager.darkIcon,
               ),
@@ -51,9 +56,9 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                 firstDate: DateTime(2020),
                 lastDate: DateTime(2050),
               );
-              setState(() {
-                selectedDate = pickedDate;
-              });
+              if (pickedDate != null) {
+                widget.onDateChanged(pickedDate);
+              }
             },
             child: Container(
               padding: const EdgeInsets.all(6),

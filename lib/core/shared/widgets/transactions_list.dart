@@ -37,7 +37,6 @@ class TransactionsList extends StatelessWidget {
 List<TransactionModel> getSampleTransactions() {
   return [
     TransactionModel(
-      id: '1',
       title: LocaleKeys.salary.tr(),
       category: LocaleKeys.income.tr(),
       amount: 5000,
@@ -47,7 +46,6 @@ List<TransactionModel> getSampleTransactions() {
       frequency: LocaleKeys.monthly.tr(),
     ),
     TransactionModel(
-      id: '2',
       title: LocaleKeys.groceries.tr(),
       category: LocaleKeys.food.tr(),
       amount: 150,
@@ -57,7 +55,6 @@ List<TransactionModel> getSampleTransactions() {
       frequency: LocaleKeys.weekly.tr(),
     ),
     TransactionModel(
-      id: '3',
       title: LocaleKeys.fuel.tr(),
       category: LocaleKeys.transport.tr(),
       amount: 80,
@@ -67,7 +64,6 @@ List<TransactionModel> getSampleTransactions() {
       frequency: LocaleKeys.weekly.tr(),
     ),
     TransactionModel(
-      id: '4',
       title: LocaleKeys.dinner.tr(),
       category: LocaleKeys.food.tr(),
       amount: 45,
@@ -77,7 +73,6 @@ List<TransactionModel> getSampleTransactions() {
       frequency: LocaleKeys.daily.tr(),
     ),
     TransactionModel(
-      id: '5',
       title: LocaleKeys.rent.tr(),
       category: LocaleKeys.rent.tr(),
       amount: 1200,

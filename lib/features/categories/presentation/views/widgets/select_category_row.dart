@@ -4,15 +4,20 @@ import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class SelectCategoryRow extends StatefulWidget {
-  const SelectCategoryRow({super.key});
+  final String? selectedCategory;
+  final Function(String?) onCategoryChanged;
+
+  const SelectCategoryRow({
+    super.key,
+    required this.selectedCategory,
+    required this.onCategoryChanged,
+  });
 
   @override
   State<SelectCategoryRow> createState() => _SelectCategoryRowState();
 }
 
 class _SelectCategoryRowState extends State<SelectCategoryRow> {
-  String? selectedCategory;
-
   final categories = [
     LocaleKeys.food.tr(),
     LocaleKeys.transport.tr(),
@@ -36,12 +41,12 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
         children: [
           Expanded(
             child: Text(
-              selectedCategory?.tr() ?? LocaleKeys.select_category.tr(),
+              widget.selectedCategory?.tr() ?? LocaleKeys.select_category.tr(),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontWeight: selectedCategory == null
+                fontWeight: widget.selectedCategory == null
                     ? FontWeight.normal
                     : FontWeight.w500,
-                color: selectedCategory == null
+                color: widget.selectedCategory == null
                     ? ColorsManager.mainGreen
                     : ColorsManager.darkIcon,
                 fontSize: 14,
@@ -60,9 +65,7 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
                 )
                 .toList(),
             onChanged: (newValue) {
-              setState(() {
-                selectedCategory = newValue;
-              });
+              widget.onCategoryChanged(newValue);
             },
           ),
         ],

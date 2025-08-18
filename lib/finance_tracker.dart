@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/routing/app_router.dart';
 import 'package:finance_wise/core/routing/routes.dart';
+import 'package:finance_wise/core/services/transaction_service.dart';
+import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
+import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/core/themes/app_themes.dart';
 import 'package:finance_wise/features/profile/presentation/manger/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +15,18 @@ class FinanceTracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeCubit()..loadTheme(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ThemeCubit()..loadTheme()),
+        BlocProvider(
+          create: (context) =>
+              TransactionsCubit(TransactionsService())..getAllTransactions(),
+        ),
+
+        BlocProvider(
+          create: (context) => CategoriesCubit(TransactionsService()),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeState) {
           return ScreenUtilInit(
