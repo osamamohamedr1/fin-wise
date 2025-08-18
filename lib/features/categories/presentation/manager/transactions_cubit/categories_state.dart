@@ -7,10 +7,10 @@ final class CategoriesInitial extends CategoriesState {}
 
 final class CategoriesLoading extends CategoriesState {}
 
-final class CategoriesLoaded extends CategoriesState {
-  final List<TransactionModel> allCategories;
+final class CategoriesTxLoaded extends CategoriesState {
+  final List<TransactionModel> categoryTxList;
 
-  CategoriesLoaded({required this.allCategories});
+  CategoriesTxLoaded({required this.categoryTxList});
 }
 
 final class CategoriesTxAdded extends CategoriesState {}

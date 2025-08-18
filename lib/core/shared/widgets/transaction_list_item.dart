@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/functions/format_transiction_date.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/assets.dart';
@@ -5,6 +6,7 @@ import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/shared/widgets/transiction_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'dart:ui' as ui;
 
 class TransactionListItem extends StatelessWidget {
   final TransactionModel transaction;
@@ -37,12 +39,12 @@ class TransactionListItem extends StatelessWidget {
               ),
 
               Text(
-                formatDate(transaction.date),
+                formatDate(transaction.date, context),
 
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: ColorsManager.blue,
                   fontWeight: FontWeight.w500,
-                  fontSize: 11,
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -51,17 +53,18 @@ class TransactionListItem extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width / 7,
             child: Text(
-              transaction.category,
-              textAlign: TextAlign.start,
+              transaction.category.tr(),
+              textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
             ),
           ),
           SvgPicture.asset(Assets.svgsVline),
           Expanded(
             child: Directionality(
-              textDirection: TextDirection.ltr,
+              textDirection: ui.TextDirection.ltr,
               child: Text(
                 formattedAmount,
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: transaction.isExpense
                       ? Colors.red

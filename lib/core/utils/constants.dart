@@ -1,6 +1,6 @@
 const String themeBox = 'themeBox';
-const String transactionsBox = 'transactionsBox';
-const String categoriesBox = 'categoriesBox';
+const String transactionsBox = 'transactionsBox2';
+const String categoriesBox = 'categoriesBox2';
 const String budgetBox = 'budgetBox';
 const String reportsBox = 'reportsBox';
 const String settingsBox = 'settingsBox';

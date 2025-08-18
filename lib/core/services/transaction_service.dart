@@ -12,4 +12,11 @@ class TransactionsService {
   Future<List<TransactionModel>> getAllTransactions() async {
     return txBox.values.toList();
   }
+
+  Future<List<TransactionModel>> filterTransactionsByCategories(
+    String category,
+  ) async {
+    // Filter by translation key, not translated value
+    return txBox.values.where((tx) => tx.category == category).toList();
+  }
 }

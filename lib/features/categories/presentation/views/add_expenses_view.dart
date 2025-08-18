@@ -15,7 +15,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddExpensesView extends StatefulWidget {
-  const AddExpensesView({super.key});
+  final String? preSelectedCategory;
+
+  const AddExpensesView({super.key, this.preSelectedCategory});
 
   @override
   State<AddExpensesView> createState() => _AddExpensesViewState();
@@ -28,6 +30,12 @@ class _AddExpensesViewState extends State<AddExpensesView> {
 
   DateTime? selectedDate;
   String? selectedCategory;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedCategory = widget.preSelectedCategory;
+  }
 
   @override
   void dispose() {
@@ -120,10 +128,15 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                             if (state is CategoriesTxAdded) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(LocaleKeys.save_expense.tr()),
+                                  content: Text(LocaleKeys.expense_saved.tr()),
                                 ),
                               );
                               context.pop();
+                              context
+                                  .read<CategoriesCubit>()
+                                  .getCategoryExpenses(
+                                    category: selectedCategory!,
+                                  );
                             } else if (state is CategoriesError) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(state.message)),

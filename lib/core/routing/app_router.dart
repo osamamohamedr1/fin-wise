@@ -14,7 +14,10 @@ Route onGenerateRoute(RouteSettings settings) {
     case Routes.settings:
       return MaterialPageRoute(builder: (_) => SettingsView());
     case Routes.addExpenses:
-      return MaterialPageRoute(builder: (_) => AddExpensesView());
+      final args = settings.arguments as String?;
+      return MaterialPageRoute(
+        builder: (_) => AddExpensesView(preSelectedCategory: args),
+      );
     case Routes.savingsView:
       return MaterialPageRoute(builder: (_) => AddSavingsView());
     case Routes.categoryExpensesDetails:

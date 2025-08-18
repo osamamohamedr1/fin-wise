@@ -34,7 +34,10 @@ class CategoryExpensesDetails extends StatelessWidget {
 
                     ElevatedButton(
                       onPressed: () {
-                        context.pushNamed(Routes.addExpenses);
+                        context.pushNamed(
+                          Routes.addExpenses,
+                          arguments: category.label,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ColorsManager.mainGreen,

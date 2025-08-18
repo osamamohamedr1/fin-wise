@@ -19,15 +19,22 @@ class SelectCategoryRow extends StatefulWidget {
 
 class _SelectCategoryRowState extends State<SelectCategoryRow> {
   final categories = [
-    LocaleKeys.food.tr(),
-    LocaleKeys.transport.tr(),
-    LocaleKeys.entertainment.tr(),
-    LocaleKeys.medical.tr(),
-    LocaleKeys.groceries.tr(),
-    LocaleKeys.gifts.tr(),
-    LocaleKeys.rent.tr(),
-    LocaleKeys.fother.tr(),
+    LocaleKeys.food,
+    LocaleKeys.transport,
+    LocaleKeys.entertainment,
+    LocaleKeys.medical,
+    LocaleKeys.groceries,
+    LocaleKeys.gifts,
+    LocaleKeys.rent,
+    LocaleKeys.fother,
   ];
+
+  String _getDisplayText() {
+    if (widget.selectedCategory == null) {
+      return LocaleKeys.select_category.tr();
+    }
+    return widget.selectedCategory!.tr();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,7 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
         children: [
           Expanded(
             child: Text(
-              widget.selectedCategory?.tr() ?? LocaleKeys.select_category.tr(),
+              _getDisplayText(),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 fontWeight: widget.selectedCategory == null
                     ? FontWeight.normal
@@ -59,8 +66,8 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
             items: categories
                 .map(
                   (cat) => DropdownMenuItem(
-                    value: cat.toLowerCase(),
-                    child: dropdownText(cat),
+                    value: cat,
+                    child: dropdownText(cat.tr()),
                   ),
                 )
                 .toList(),

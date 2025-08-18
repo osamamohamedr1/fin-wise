@@ -36,12 +36,12 @@ class CategoryExpensesItem extends StatelessWidget {
                 ),
 
                 Text(
-                  formatDate(transaction.date),
+                  formatDate(transaction.date, context),
 
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: ColorsManager.blue,
                     fontWeight: FontWeight.w600,
-                    fontSize: 11,
+                    fontSize: 12,
                   ),
                 ),
               ],

@@ -14,7 +14,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     try {
       var result = await transactionsService.getAllTransactions();
 
-      emit(CategoriesLoaded(allCategories: result));
+      emit(CategoriesTxLoaded(categoryTxList: result));
     } catch (e) {
       emit(CategoriesError(message: e.toString()));
     }
@@ -24,6 +24,17 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     try {
       await transactionsService.addTransaction(txModel: txModel);
       emit(CategoriesTxAdded());
+    } catch (e) {
+      emit(CategoriesError(message: e.toString()));
+    }
+  }
+
+  Future<void> getCategoryExpenses({required String category}) async {
+    try {
+      var result = await transactionsService.filterTransactionsByCategories(
+        category,
+      );
+      emit(CategoriesTxLoaded(categoryTxList: result));
     } catch (e) {
       emit(CategoriesError(message: e.toString()));
     }

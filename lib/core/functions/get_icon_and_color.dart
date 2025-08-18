@@ -4,6 +4,7 @@ import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 
 String getDefaultIcon(String category) {
+  // Handle both translation keys and plain English text for backward compatibility
   switch (category.toLowerCase()) {
     case 'food':
     case 'dinner':
@@ -24,12 +25,15 @@ String getDefaultIcon(String category) {
       return Assets.svgsMedical;
     case 'savings':
       return Assets.svgsSavings;
-    case 'gift':
+    case 'gifts':
       return Assets.svgsGift;
     case 'travel':
       return Assets.svgsTravel;
     case 'car':
       return Assets.svgsCar;
+    case 'fother':
+    case 'other':
+      return Assets.svgsMore;
     default:
       return Assets.svgsTransaction;
   }

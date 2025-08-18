@@ -2,9 +2,11 @@ import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/core/models/category_item_model.dart';
+import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_item.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryGrid extends StatelessWidget {
   const CategoryGrid({super.key});
@@ -40,4 +42,5 @@ void _onCategoryTap(BuildContext context, CategoryItemModel category) {
     return;
   }
   context.pushNamed(Routes.categoryExpensesDetails, arguments: category);
+  context.read<CategoriesCubit>().getCategoryExpenses(category: category.label);
 }

@@ -48,6 +48,7 @@ abstract class  LocaleKeys {
   static const travel = 'travel';
   static const new_home = 'new_home';
   static const car = 'car';
+  static const expense_saved = 'expense_saved';
   static const analysis = 'analysis';
   static const category = 'category';
   static const categories = 'categories';
