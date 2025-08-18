@@ -54,5 +54,12 @@
   "categories": "الفئات",
   "save_expense": "حفظ المصروف",
   "please_fill_fields": "يرجى ملء جميع الحقول المطلوبة",
+  
+  "no_income_recorded": "لم يتم تسجيل أي دخل بعد.",
+  "excellent_savings_rate": "{percentage}% من الدخل تم إنفاقه. معدل ادخار ممتاز!",
+  "good_financial_balance": "{percentage}% من الدخل تم إنفاقه. توازن مالي جيد.",
+  "consider_reducing_expenses": "{percentage}% من الدخل تم إنفاقه. فكر في تقليل المصروفات.",
+  "budget_review_needed": "إنفاق {percentage}% من الدخل. تحتاج لمراجعة الميزانية!",
+  
   "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا."
 }

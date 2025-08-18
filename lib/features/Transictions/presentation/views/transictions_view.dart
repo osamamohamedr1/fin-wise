@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/features/transictions/presentation/views/widgets/routes.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/core/shared/widgets/select_transiction_date_row.dart';
 import 'package:finance_wise/core/shared/widgets/transaction_list_item.dart';
@@ -16,6 +17,13 @@ class TransactionsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        
+        onPressed: () {
+          Navigator.pushNamed(context, Routes.addIncome);
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: Text(
           LocaleKeys.transaction.tr(),

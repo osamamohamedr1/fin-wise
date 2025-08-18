@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/routing/app_router.dart';
-import 'package:finance_wise/core/routing/routes.dart';
+import 'package:finance_wise/features/transictions/presentation/views/widgets/routes.dart';
 import 'package:finance_wise/core/services/transaction_service.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
+import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/core/themes/app_themes.dart';
 import 'package:finance_wise/features/profile/presentation/manger/cubit/theme_cubit.dart';
@@ -25,6 +26,11 @@ class FinanceTracker extends StatelessWidget {
 
         BlocProvider(
           create: (context) => CategoriesCubit(TransactionsService()),
+        ),
+
+        BlocProvider(
+          create: (context) =>
+              HomeCubit(TransactionsService())..getNumbersDetails(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(

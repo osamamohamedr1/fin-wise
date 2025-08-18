@@ -16,7 +16,23 @@ class TransactionsService {
   Future<List<TransactionModel>> filterTransactionsByCategories(
     String category,
   ) async {
-    // Filter by translation key, not translated value
     return txBox.values.where((tx) => tx.category == category).toList();
+  }
+
+  Future<double> getTotalExpenses() async {
+    final expenses = txBox.values.where((e) => e.isExpense);
+    return expenses.fold<double>(0, (sum, tx) => sum + tx.amount);
+  }
+
+  Future<double> getTotalIncome() async {
+    final income = txBox.values.where((e) => !e.isExpense);
+    return income.fold<double>(0, (sum, tx) => sum + tx.amount);
+  }
+
+  Future<double> getTotalBalance() async {
+    final income = txBox.values.where((e) => !e.isExpense);
+    final expenses = txBox.values.where((e) => e.isExpense);
+    return income.fold<double>(0, (sum, tx) => sum + tx.amount) -
+        expenses.fold<double>(0, (sum, tx) => sum + tx.amount);
   }
 }

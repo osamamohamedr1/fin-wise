@@ -54,6 +54,11 @@ abstract class  LocaleKeys {
   static const categories = 'categories';
   static const save_expense = 'save_expense';
   static const please_fill_fields = 'please_fill_fields';
+  static const no_income_recorded = 'no_income_recorded';
+  static const excellent_savings_rate = 'excellent_savings_rate';
+  static const good_financial_balance = 'good_financial_balance';
+  static const consider_reducing_expenses = 'consider_reducing_expenses';
+  static const budget_review_needed = 'budget_review_needed';
   static const percentage_tip = 'percentage_tip';
 
 }

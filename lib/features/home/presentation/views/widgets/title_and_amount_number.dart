@@ -37,12 +37,16 @@ class TitleAndNumber extends StatelessWidget {
             Text(title, style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
-        Text(
-          amount,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: isExpense
-                ? ColorsManager.blue
-                : ColorsManager.lightBackground,
+        FittedBox(
+          child: Text(
+            amount,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: isExpense
+                  ? ColorsManager.blue
+                  : ColorsManager.lightBackground,
+            ),
           ),
         ),
       ],

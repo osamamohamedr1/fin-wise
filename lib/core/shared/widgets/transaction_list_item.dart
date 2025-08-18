@@ -4,6 +4,7 @@ import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/shared/widgets/transiction_icon.dart';
+import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:ui' as ui;
@@ -31,7 +32,9 @@ class TransactionListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                transaction.title,
+                transaction.title.isNotEmpty
+                    ? transaction.title
+                    : transaction.category.tr(),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 15,
@@ -53,7 +56,9 @@ class TransactionListItem extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width / 7,
             child: Text(
-              transaction.category.tr(),
+              transaction.isExpense
+                  ? transaction.category.tr()
+                  : LocaleKeys.income.tr(),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
             ),

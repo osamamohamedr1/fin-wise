@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finance_wise/core/routing/routes.dart';
+import 'package:finance_wise/features/transictions/presentation/views/widgets/routes.dart';
 import 'package:finance_wise/core/shared/widgets/income_expenses_section.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/extensions.dart';

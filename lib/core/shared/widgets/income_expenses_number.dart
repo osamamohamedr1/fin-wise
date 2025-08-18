@@ -7,7 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class IncomeExpensesNumber extends StatelessWidget {
-  const IncomeExpensesNumber({super.key});
+  const IncomeExpensesNumber({
+    super.key,
+    required this.totalBalance,
+    required this.totalExpense,
+  });
+  final double totalBalance;
+  final double totalExpense;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,7 @@ class IncomeExpensesNumber extends StatelessWidget {
         TitleAndNumber(
           isExpense: false,
           title: LocaleKeys.total_balance.tr(),
-          amount: '\$5000',
+          amount: '\$${totalBalance.toStringAsFixed(2)}',
         ),
 
         Expanded(child: SvgPicture.asset(Assets.svgsVline)),
@@ -27,7 +33,7 @@ class IncomeExpensesNumber extends StatelessWidget {
         TitleAndNumber(
           isExpense: true,
           title: LocaleKeys.total_expense.tr(),
-          amount: '-\$5000',
+          amount: '-\$${totalExpense.toStringAsFixed(2)}',
         ),
         horizontalSpacing(10),
       ],

@@ -1,30 +1,29 @@
 import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/extensions.dart';
-import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
 import 'package:finance_wise/core/shared/widgets/white_container.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
-import 'package:finance_wise/features/categories/presentation/views/widgets/select_category_row.dart';
-import 'package:finance_wise/features/categories/presentation/views/widgets/select_date_row.dart';
-import 'package:finance_wise/features/categories/presentation/views/widgets/expenses_form.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
+import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
+import 'package:finance_wise/features/transictions/presentation/views/widgets/select_income_category_row.dart';
+import 'package:finance_wise/features/categories/presentation/views/widgets/select_date_row.dart';
+import 'package:finance_wise/features/transictions/presentation/views/widgets/income_form.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddExpensesView extends StatefulWidget {
+class AddIncomeView extends StatefulWidget {
   final String? preSelectedCategory;
 
-  const AddExpensesView({super.key, this.preSelectedCategory});
+  const AddIncomeView({super.key, this.preSelectedCategory});
 
   @override
-  State<AddExpensesView> createState() => _AddExpensesViewState();
+  State<AddIncomeView> createState() => _AddIncomeViewState();
 }
 
-class _AddExpensesViewState extends State<AddExpensesView> {
+class _AddIncomeViewState extends State<AddIncomeView> {
   final TextEditingController amountController = TextEditingController();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
@@ -46,7 +45,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
     super.dispose();
   }
 
-  void _saveExpense() {
+  void _saveIncome() {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
@@ -58,13 +57,13 @@ class _AddExpensesViewState extends State<AddExpensesView> {
       return;
     }
 
-    context.read<CategoriesCubit>().addCategoriestTx(
+    context.read<TransactionsCubit>().addTransactions(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
         amount: double.tryParse(amount) ?? 0.0,
         date: selectedDate!,
-        isExpense: true,
+        isExpense: false,
         expensesTitle: title,
         note: message,
       ),
@@ -75,7 +74,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.add_expenses.tr()),
+        title: Text(LocaleKeys.income.tr()),
         centerTitle: true,
         automaticallyImplyLeading: true,
       ),
@@ -105,7 +104,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                       ),
                       verticalSpacing(12),
                       titleText(context, LocaleKeys.category.tr()),
-                      SelectCategoryRow(
+                      SelectIncomeCategoryRow(
                         selectedCategory: selectedCategory,
                         onCategoryChanged: (String? category) {
                           setState(() {
@@ -114,29 +113,29 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                         },
                       ),
                       verticalSpacing(8),
-                      ExpenseForm(
+                      IncomeForm(
                         amountController: amountController,
                         titleController: titleController,
                         messageController: messageController,
                       ),
                       verticalSpacing(4),
                       Center(
-                        child: BlocListener<CategoriesCubit, CategoriesState>(
+                        child: BlocListener<TransactionsCubit, TransactionsState>(
                           listener: (context, state) {
-                            if (state is CategoriesTxAdded) {
+                            if (state is TransactionsAdded) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(LocaleKeys.expense_saved.tr()),
+                                  content: Text(
+                                    "${LocaleKeys.income.tr()} saved successfully!",
+                                  ),
                                 ),
                               );
                               context.pop();
                               context
-                                  .read<CategoriesCubit>()
-                                  .getCategoryExpenses(
-                                    category: selectedCategory!,
-                                  );
+                                  .read<TransactionsCubit>()
+                                  .getAllTransactions();
                               context.read<HomeCubit>().getNumbersDetails();
-                            } else if (state is CategoriesError) {
+                            } else if (state is TransactionsError) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(state.message)),
                               );
@@ -144,13 +143,13 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                           },
                           child: ElevatedButton(
                             onPressed: () {
-                              _saveExpense();
+                              _saveIncome();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorsManager.mainGreen,
                             ),
                             child: Text(
-                              LocaleKeys.save_expense.tr(),
+                              LocaleKeys.income.tr(),
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
