@@ -60,5 +60,8 @@ abstract class  LocaleKeys {
   static const consider_reducing_expenses = 'consider_reducing_expenses';
   static const budget_review_needed = 'budget_review_needed';
   static const percentage_tip = 'percentage_tip';
+  static const all_transactions = 'all_transactions';
+  static const no_transactions = 'no_transactions';
+  static const add_first_transaction = 'add_first_transaction';
 
 }

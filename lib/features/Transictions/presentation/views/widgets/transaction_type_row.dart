@@ -7,7 +7,13 @@ import 'package:flutter/widgets.dart';
 enum TransactionType { income, expense }
 
 class TransactionTypeRow extends StatefulWidget {
-  const TransactionTypeRow({super.key});
+  const TransactionTypeRow({
+    super.key,
+    required this.income,
+    required this.expense,
+  });
+  final double income;
+  final double expense;
 
   @override
   State<TransactionTypeRow> createState() => _TransactionTypeRowState();
@@ -33,7 +39,7 @@ class _TransactionTypeRowState extends State<TransactionTypeRow> {
             child: TransactionTypeInfo(
               isExpense: false,
               title: LocaleKeys.income.tr(),
-              amount: '\$20,000.0',
+              amount: '\$${widget.income.toStringAsFixed(2)}',
               isSelected: selectedType == TransactionType.income,
             ),
           ),
@@ -51,7 +57,7 @@ class _TransactionTypeRowState extends State<TransactionTypeRow> {
             child: TransactionTypeInfo(
               isExpense: true,
               title: LocaleKeys.expense.tr(),
-              amount: '-\$5,000.0',
+              amount: '-\$${widget.expense.toStringAsFixed(2)}',
               isSelected: selectedType == TransactionType.expense,
             ),
           ),

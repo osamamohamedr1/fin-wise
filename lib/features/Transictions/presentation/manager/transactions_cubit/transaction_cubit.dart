@@ -12,8 +12,18 @@ class TransactionsCubit extends Cubit<TransactionsState> {
 
   Future<void> getAllTransactions() async {
     try {
+      emit(TransactionsLoading());
       var result = await transactionService.getAllTransactions();
+      emit(TransactionsLoaded(allTransactions: result));
+    } catch (e) {
+      emit(TransactionsError(message: e.toString()));
+    }
+  }
 
+  Future<void> filterTransactionsByMonth(DateTime month) async {
+    try {
+      emit(TransactionsLoading());
+      var result = await transactionService.filterTransactionsByMonth(month);
       emit(TransactionsLoaded(allTransactions: result));
     } catch (e) {
       emit(TransactionsError(message: e.toString()));
@@ -24,6 +34,8 @@ class TransactionsCubit extends Cubit<TransactionsState> {
     try {
       await transactionService.addTransaction(txModel: txModel);
       emit(TransactionsAdded());
+
+      getAllTransactions();
     } catch (e) {
       emit(TransactionsError(message: e.toString()));
     }

@@ -10,13 +10,31 @@ class TransactionsService {
   }
 
   Future<List<TransactionModel>> getAllTransactions() async {
-    return txBox.values.toList();
+    final transactions = txBox.values.toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
   }
 
   Future<List<TransactionModel>> filterTransactionsByCategories(
     String category,
   ) async {
-    return txBox.values.where((tx) => tx.category == category).toList();
+    final transactions = txBox.values
+        .where((tx) => tx.category == category)
+        .toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
+  Future<List<TransactionModel>> filterTransactionsByMonth(
+    DateTime month,
+  ) async {
+    final transactions = txBox.values
+        .where(
+          (tx) => tx.date.month == month.month && tx.date.year == month.year,
+        )
+        .toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
   }
 
   Future<double> getTotalExpenses() async {

@@ -2,11 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TotalBalanceRow extends StatelessWidget {
-  const TotalBalanceRow({super.key});
-
+  const TotalBalanceRow({super.key, required this.totalBalance});
+  final double totalBalance;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +27,10 @@ class TotalBalanceRow extends StatelessWidget {
               fontSize: 13,
             ),
           ),
-          Text('\$20,7550.0', style: Theme.of(context).textTheme.titleMedium),
+          Text(
+            '\$${totalBalance.toStringAsFixed(2)}',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ],
       ),
     );

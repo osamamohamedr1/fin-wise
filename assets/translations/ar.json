@@ -61,5 +61,8 @@
   "consider_reducing_expenses": "{percentage}% من الدخل تم إنفاقه. فكر في تقليل المصروفات.",
   "budget_review_needed": "إنفاق {percentage}% من الدخل. تحتاج لمراجعة الميزانية!",
   
-  "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا."
+  "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا.",
+  "all_transactions": "جميع المعاملات",
+  "no_transactions": "لا توجد معاملات",
+  "add_first_transaction": "أضف أول معاملة لك للبدء"
 }
