@@ -48,7 +48,7 @@ class CategoryExpensesDetails extends StatelessWidget {
                       ),
                     ),
 
-                    verticalSpacing(8),
+                    verticalSpacing(16),
                   ],
                 ),
               ),

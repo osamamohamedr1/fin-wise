@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_expenses_item.dart';
+import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +26,7 @@ class CategoryExpensesListDetails extends StatelessWidget {
 
         if (state is CategoriesTxLoaded) {
           if (state.categoryTxList.isEmpty) {
-            return const Center(child: Text('No transactions found'));
+            return Center(child: Text(LocaleKeys.no_transactions.tr()));
           }
 
           return RefreshIndicator(

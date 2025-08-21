@@ -37,6 +37,18 @@ class TransactionsService {
     return transactions;
   }
 
+  Future<List<TransactionModel>> getIncomeTransactions() async {
+    final transactions = txBox.values.where((tx) => !tx.isExpense).toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
+  Future<List<TransactionModel>> getExpenseTransactions() async {
+    final transactions = txBox.values.where((tx) => tx.isExpense).toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
   Future<double> getTotalExpenses() async {
     final expenses = txBox.values.where((e) => e.isExpense);
     return expenses.fold<double>(0, (sum, tx) => sum + tx.amount);

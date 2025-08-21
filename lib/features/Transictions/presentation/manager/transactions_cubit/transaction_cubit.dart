@@ -30,6 +30,26 @@ class TransactionsCubit extends Cubit<TransactionsState> {
     }
   }
 
+  Future<void> getIncomeTransactions() async {
+    try {
+      emit(TransactionsLoading());
+      var result = await transactionService.getIncomeTransactions();
+      emit(TransactionsLoaded(allTransactions: result));
+    } catch (e) {
+      emit(TransactionsError(message: e.toString()));
+    }
+  }
+
+  Future<void> getExpenseTransactions() async {
+    try {
+      emit(TransactionsLoading());
+      var result = await transactionService.getExpenseTransactions();
+      emit(TransactionsLoaded(allTransactions: result));
+    } catch (e) {
+      emit(TransactionsError(message: e.toString()));
+    }
+  }
+
   Future<void> addTransactions({required TransactionModel txModel}) async {
     try {
       await transactionService.addTransaction(txModel: txModel);

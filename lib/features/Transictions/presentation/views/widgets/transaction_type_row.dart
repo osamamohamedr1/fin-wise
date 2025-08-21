@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
+import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/views/widgets/transaction_type_info.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum TransactionType { income, expense }
 
@@ -22,6 +24,34 @@ class TransactionTypeRow extends StatefulWidget {
 class _TransactionTypeRowState extends State<TransactionTypeRow> {
   TransactionType? selectedType;
 
+  void _onIncomeTypeTapped() {
+    final transactionsCubit = context.read<TransactionsCubit>();
+
+    setState(() {
+      if (selectedType == TransactionType.income) {
+        selectedType = null;
+        transactionsCubit.getAllTransactions();
+      } else {
+        selectedType = TransactionType.income;
+        transactionsCubit.getIncomeTransactions();
+      }
+    });
+  }
+
+  void _onExpenseTypeTapped() {
+    final transactionsCubit = context.read<TransactionsCubit>();
+
+    setState(() {
+      if (selectedType == TransactionType.expense) {
+        selectedType = null;
+        transactionsCubit.getAllTransactions();
+      } else {
+        selectedType = TransactionType.expense;
+        transactionsCubit.getExpenseTransactions();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,13 +59,7 @@ class _TransactionTypeRowState extends State<TransactionTypeRow> {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedType = (selectedType == TransactionType.income)
-                    ? null
-                    : TransactionType.income;
-              });
-            },
+            onTap: _onIncomeTypeTapped,
             child: TransactionTypeInfo(
               isExpense: false,
               title: LocaleKeys.income.tr(),
@@ -47,13 +71,7 @@ class _TransactionTypeRowState extends State<TransactionTypeRow> {
         horizontalSpacing(16),
         Expanded(
           child: GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedType = (selectedType == TransactionType.expense)
-                    ? null
-                    : TransactionType.expense;
-              });
-            },
+            onTap: _onExpenseTypeTapped,
             child: TransactionTypeInfo(
               isExpense: true,
               title: LocaleKeys.expense.tr(),
