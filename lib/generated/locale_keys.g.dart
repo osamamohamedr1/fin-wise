@@ -59,6 +59,7 @@ abstract class  LocaleKeys {
   static const good_financial_balance = 'good_financial_balance';
   static const consider_reducing_expenses = 'consider_reducing_expenses';
   static const budget_review_needed = 'budget_review_needed';
+  static const freelance = 'freelance';
   static const percentage_tip = 'percentage_tip';
   static const all_transactions = 'all_transactions';
   static const no_transactions = 'no_transactions';

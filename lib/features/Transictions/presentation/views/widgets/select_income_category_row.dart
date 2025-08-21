@@ -4,14 +4,9 @@ import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class SelectIncomeCategoryRow extends StatefulWidget {
-  final String? selectedCategory;
   final Function(String?) onCategoryChanged;
 
-  const SelectIncomeCategoryRow({
-    super.key,
-    required this.selectedCategory,
-    required this.onCategoryChanged,
-  });
+  const SelectIncomeCategoryRow({super.key, required this.onCategoryChanged});
 
   @override
   State<SelectIncomeCategoryRow> createState() =>
@@ -21,17 +16,10 @@ class SelectIncomeCategoryRow extends StatefulWidget {
 class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
   final categories = [
     LocaleKeys.salary,
-    LocaleKeys.savings,
-    LocaleKeys.gifts,
-    LocaleKeys.fother, // Other
+    LocaleKeys.freelance,
+    LocaleKeys.fother,
   ];
-
-  String _getDisplayText() {
-    if (widget.selectedCategory == null) {
-      return LocaleKeys.select_category.tr();
-    }
-    return widget.selectedCategory!.tr();
-  }
+  String? selectedCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +33,12 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
         children: [
           Expanded(
             child: Text(
-              _getDisplayText(),
+              LocaleKeys.select_category.tr(),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontWeight: widget.selectedCategory == null
+                fontWeight: selectedCategory == null
                     ? FontWeight.normal
                     : FontWeight.w500,
-                color: widget.selectedCategory == null
+                color: selectedCategory == null
                     ? ColorsManager.mainGreen
                     : ColorsManager.darkIcon,
                 fontSize: 14,
@@ -58,7 +46,7 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
             ),
           ),
           DropdownButton<String>(
-            value: null,
+            value: selectedCategory,
             underline: const SizedBox.shrink(),
             items: categories
                 .map(
@@ -70,6 +58,10 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
                 .toList(),
             onChanged: (newValue) {
               widget.onCategoryChanged(newValue);
+
+              setState(() {
+                selectedCategory = newValue;
+              });
             },
           ),
         ],

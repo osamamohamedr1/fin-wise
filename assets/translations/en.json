@@ -62,7 +62,7 @@
   "good_financial_balance": "{percentage}% of income spent. Good financial balance.",
   "consider_reducing_expenses": "{percentage}% of income spent. Consider reducing expenses.",
   "budget_review_needed": "Spending {percentage}% of income. Budget review needed!",
-
+  "freelance": "Freelance",
   "percentage_tip": "30% Of Your Expenses, Looks Good.",
   "all_transactions": "All Transactions",
   "no_transactions": "No transactions",

@@ -20,10 +20,7 @@ Route onGenerateRoute(RouteSettings settings) {
         builder: (_) => AddExpensesView(preSelectedCategory: args),
       );
     case Routes.addIncome:
-      final args = settings.arguments as String?;
-      return MaterialPageRoute(
-        builder: (_) => AddIncomeView(preSelectedCategory: args),
-      );
+      return MaterialPageRoute(builder: (_) => AddIncomeView());
     case Routes.savingsView:
       return MaterialPageRoute(builder: (_) => AddSavingsView());
     case Routes.categoryExpensesDetails:

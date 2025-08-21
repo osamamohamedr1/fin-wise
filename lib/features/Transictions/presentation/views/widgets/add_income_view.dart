@@ -15,9 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddIncomeView extends StatefulWidget {
-  final String? preSelectedCategory;
-
-  const AddIncomeView({super.key, this.preSelectedCategory});
+  const AddIncomeView({super.key});
 
   @override
   State<AddIncomeView> createState() => _AddIncomeViewState();
@@ -30,12 +28,6 @@ class _AddIncomeViewState extends State<AddIncomeView> {
 
   DateTime? selectedDate;
   String? selectedCategory;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedCategory = widget.preSelectedCategory;
-  }
 
   @override
   void dispose() {
@@ -105,7 +97,6 @@ class _AddIncomeViewState extends State<AddIncomeView> {
                       verticalSpacing(12),
                       titleText(context, LocaleKeys.category.tr()),
                       SelectIncomeCategoryRow(
-                        selectedCategory: selectedCategory,
                         onCategoryChanged: (String? category) {
                           setState(() {
                             selectedCategory = category;

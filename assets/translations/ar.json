@@ -12,7 +12,7 @@
   "weekly": "أسبوعي",
   "monthly": "شهري",
   "transactions": "المعاملات",
-    "latest_transactions": "أحدث المعاملات",
+  "latest_transactions": "أحدث المعاملات",
 
   "see_all": "عرض الكل",
   "account_balance": "رصيد الحساب",
@@ -33,7 +33,6 @@
   "more": "المزيد",
   "amount":"المبلغ",
   "enter_amount": "أدخل المبلغ",
-
   "expense_title_hint": "مثال: عشاء، تاكسي",
   "add_expenses": "إضافة مصاريف",
   "expense_title": "عنوان المصروف",
@@ -41,26 +40,23 @@
   "date": "التاريخ",
   "pick_date": "اختر التاريخ",
   "fother":"أخرى",
-    "select_category": "اختر الفئة",
-   "wedding" :"زفاف",
+  "select_category": "اختر الفئة",
+  "wedding" :"زفاف",
   "travel" :"سفر",
   "new_home" :"منزل جديد",
   "car" :"سيارة",
   "expense_saved": "تم حفظ المصروف بنجاح",
-
-
   "analysis": "التحليلات",
   "category": "الفئة",
   "categories": "الفئات",
   "save_expense": "حفظ المصروف",
   "please_fill_fields": "يرجى ملء جميع الحقول المطلوبة",
-  
   "no_income_recorded": "لم يتم تسجيل أي دخل بعد.",
   "excellent_savings_rate": "{percentage}% من الدخل تم إنفاقه. معدل ادخار ممتاز!",
   "good_financial_balance": "{percentage}% من الدخل تم إنفاقه. توازن مالي جيد.",
   "consider_reducing_expenses": "{percentage}% من الدخل تم إنفاقه. فكر في تقليل المصروفات.",
   "budget_review_needed": "إنفاق {percentage}% من الدخل. تحتاج لمراجعة الميزانية!",
-  
+  "freelance": "عمل حر",
   "percentage_tip": "30٪ من مصروفاتك، يبدو جيدًا.",
   "all_transactions": "جميع المعاملات",
   "no_transactions": "لا توجد معاملات",
