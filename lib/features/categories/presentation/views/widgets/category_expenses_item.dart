@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/functions/format_transiction_date.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
@@ -28,7 +29,9 @@ class CategoryExpensesItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  transaction.title,
+                  transaction.title.isEmpty
+                      ? transaction.category.tr()
+                      : transaction.title.tr(),
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
@@ -48,15 +51,12 @@ class CategoryExpensesItem extends StatelessWidget {
             ),
           ),
 
-          Directionality(
-            textDirection: TextDirection.ltr,
-            child: Text(
-              formattedAmount,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: transaction.isExpense
-                    ? Colors.red
-                    : ColorsManager.darkIcon,
-              ),
+          Text(
+            formattedAmount,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: transaction.isExpense
+                  ? Colors.red
+                  : ColorsManager.darkIcon,
             ),
           ),
         ],
