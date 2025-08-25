@@ -8,12 +8,28 @@ import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class TransactionsList extends StatelessWidget {
-  const TransactionsList({super.key});
+  final List<TransactionModel> transactions;
+
+  const TransactionsList({super.key, required this.transactions});
 
   @override
   Widget build(BuildContext context) {
-    // Sample data - replace with your actual data source
-    final List<TransactionModel> transactions = getSampleTransactions();
+    if (transactions.isEmpty) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          verticalSpacing(16),
+          Center(
+            child: Text(
+              LocaleKeys.no_transactions.tr(),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: Colors.grey.shade600),
+            ),
+          ),
+        ],
+      );
+    }
 
     return Column(
       mainAxisSize: MainAxisSize.min,

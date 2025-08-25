@@ -49,6 +49,54 @@ class TransactionsService {
     return transactions;
   }
 
+  Future<List<TransactionModel>> getDailyTransactions() async {
+    final now = DateTime.now();
+    final startOfDay = DateTime(now.year, now.month, now.day);
+    final endOfDay = DateTime(now.year, now.month, now.day, 23, 59, 59);
+
+    final transactions = txBox.values
+        .where(
+          (tx) =>
+              tx.date.isAfter(startOfDay.subtract(Duration(seconds: 1))) &&
+              tx.date.isBefore(endOfDay.add(Duration(seconds: 1))),
+        )
+        .toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
+  Future<List<TransactionModel>> getWeeklyTransactions() async {
+    final now = DateTime.now();
+    final startOfWeek = now.subtract(Duration(days: now.weekday - 1));
+    final startOfWeekDay = DateTime(
+      startOfWeek.year,
+      startOfWeek.month,
+      startOfWeek.day,
+    );
+
+    final transactions = txBox.values
+        .where(
+          (tx) =>
+              tx.date.isAfter(startOfWeekDay.subtract(Duration(seconds: 1))),
+        )
+        .toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
+  Future<List<TransactionModel>> getMonthlyTransactions() async {
+    final now = DateTime.now();
+    final startOfMonth = DateTime(now.year, now.month, 1);
+
+    final transactions = txBox.values
+        .where(
+          (tx) => tx.date.isAfter(startOfMonth.subtract(Duration(seconds: 1))),
+        )
+        .toList();
+    transactions.sort((a, b) => b.date.compareTo(a.date));
+    return transactions;
+  }
+
   Future<double> getTotalExpenses() async {
     final expenses = txBox.values.where((e) => e.isExpense);
     return expenses.fold<double>(0, (sum, tx) => sum + tx.amount);
