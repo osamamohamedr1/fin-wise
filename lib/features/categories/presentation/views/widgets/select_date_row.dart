@@ -56,9 +56,7 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                 firstDate: DateTime(2020),
                 lastDate: DateTime(2050),
               );
-              if (pickedDate != null) {
-                widget.onDateChanged(pickedDate);
-              }
+              widget.onDateChanged(pickedDate);
             },
             child: Container(
               padding: const EdgeInsets.all(6),

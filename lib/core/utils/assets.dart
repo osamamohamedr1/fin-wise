@@ -18,6 +18,14 @@ class Assets {
   /// assets/fonts/Poppins-SemiBold.ttf
   static const String fontsPoppinsSemiBold = "assets/fonts/Poppins-SemiBold.ttf";
 
+  /// Assets for imagesSplash
+  /// assets/images/splash.png
+  static const String imagesSplash = "assets/images/splash.png";
+
+  /// Assets for imagesSplash12
+  /// assets/images/splash_12.png
+  static const String imagesSplash12 = "assets/images/splash_12.png";
+
   /// Assets for svgsAnalysis
   /// assets/svgs/Analysis.svg
   static const String svgsAnalysis = "assets/svgs/Analysis.svg";
