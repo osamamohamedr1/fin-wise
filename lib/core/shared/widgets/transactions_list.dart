@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
-import 'package:finance_wise/features/home/presentation/views/widgets/latest_transiction_title.dart';
 import 'package:finance_wise/core/shared/widgets/transaction_list_item.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +33,6 @@ class TransactionsList extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        LatestTransictionTitle(),
-        verticalSpacing(16),
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
