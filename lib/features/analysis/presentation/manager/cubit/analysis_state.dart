@@ -9,7 +9,14 @@ class AnalysisLoading extends AnalysisState {}
 
 class AnalysisLoaded extends AnalysisState {
   final List<BarChartGroupData> barGroups;
-  AnalysisLoaded(this.barGroups);
+  final double totalIncome;
+  final double totalExpense;
+
+  AnalysisLoaded({
+    required this.barGroups,
+    required this.totalIncome,
+    required this.totalExpense,
+  });
 }
 
 class AnalysisError extends AnalysisState {

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
+import 'package:finance_wise/core/shared/widgets/no_transactions_widget.dart';
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/core/shared/widgets/transaction_list_item.dart';
@@ -18,14 +19,7 @@ class TransactionsList extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           verticalSpacing(16),
-          Center(
-            child: Text(
-              LocaleKeys.no_transactions.tr(),
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(color: Colors.grey.shade600),
-            ),
-          ),
+          Center(child: NoTransactionsWidget()),
         ],
       );
     }

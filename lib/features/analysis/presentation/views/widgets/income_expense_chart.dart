@@ -42,7 +42,9 @@ class IncomeExpenseChart extends StatelessWidget {
           ),
           verticalSpacing(20),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.25,
+            height:
+                MediaQuery.sizeOf(context).height *
+                0.28, // Increased height for better tooltip space
             width: double.infinity,
             child: BlocBuilder<AnalysisCubit, AnalysisState>(
               builder: (context, state) {
@@ -66,12 +68,18 @@ class IncomeExpenseChart extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: SizedBox(
+                    child: Container(
                       width: 750,
+                      padding: EdgeInsets.only(
+                        top: 40.h,
+                        bottom: 10.h,
+                      ), // Add padding for tooltips
                       child: BarChart(
                         BarChartData(
                           alignment: BarChartAlignment.spaceAround,
-                          maxY: responsiveMaxY + 700,
+                          maxY:
+                              responsiveMaxY +
+                              1000, // Increased padding for tooltip space
                           minY: 0,
                           titlesData: FlTitlesData(
                             show: true,
@@ -91,7 +99,7 @@ class IncomeExpenseChart extends StatelessWidget {
                             leftTitles: AxisTitles(
                               sideTitles: SideTitles(
                                 showTitles: true,
-                                reservedSize: 50,
+                                reservedSize: 40,
 
                                 interval: responsiveInterval,
                                 getTitlesWidget: (value, meta) =>
@@ -118,21 +126,28 @@ class IncomeExpenseChart extends StatelessWidget {
                             touchTooltipData: BarTouchTooltipData(
                               getTooltipColor: (group) => Colors.black87,
                               tooltipRoundedRadius: 8,
-                              getTooltipItem:
-                                  (group, groupIndex, rod, rodIndex) {
-                                    final isIncome = rodIndex == 0;
-                                    final type = isIncome
-                                        ? LocaleKeys.income.tr()
-                                        : LocaleKeys.expense.tr();
-                                    return BarTooltipItem(
-                                      '$type\n\$${rod.toY.toStringAsFixed(0)}',
-                                      TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 12.sp,
-                                      ),
-                                    );
-                                  },
+                              tooltipPadding: EdgeInsets.all(8.w),
+                              fitInsideHorizontally: true,
+                              fitInsideVertically: true,
+                              tooltipMargin:
+                                  12, // Increased margin for better spacing
+                              direction:
+                                  TooltipDirection.auto, // Auto positioning
+                              getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                                final isIncome = rodIndex == 0;
+                                final type = isIncome
+                                    ? LocaleKeys.income.tr()
+                                    : LocaleKeys.expense.tr();
+                                return BarTooltipItem(
+                                  '$type\n\$${rod.toY.toStringAsFixed(0)}',
+                                  TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11
+                                        .sp, // Slightly smaller for better fit
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),

@@ -16,7 +16,15 @@ class AnalysisCubit extends Cubit<AnalysisState> {
 
     try {
       final barGroups = await analysisRepo.getDailyBarGroups(month);
-      emit(AnalysisLoaded(barGroups));
+      final monthlyTotals = await analysisRepo.getCurrentMonthTotals(month);
+
+      emit(
+        AnalysisLoaded(
+          barGroups: barGroups,
+          totalIncome: monthlyTotals["income"] ?? 0.0,
+          totalExpense: monthlyTotals["expense"] ?? 0.0,
+        ),
+      );
     } catch (e) {
       emit(AnalysisError(e.toString()));
     }

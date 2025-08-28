@@ -1,4 +1,5 @@
 import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -42,7 +43,7 @@ class SummaryCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 4.h),
+          verticalSpacing(4),
           Text(
             amount,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
