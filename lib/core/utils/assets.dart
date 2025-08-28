@@ -18,6 +18,18 @@ class Assets {
   /// assets/fonts/Poppins-SemiBold.ttf
   static const String fontsPoppinsSemiBold = "assets/fonts/Poppins-SemiBold.ttf";
 
+  /// Assets for imagesIcon
+  /// assets/images/icon.png
+  static const String imagesIcon = "assets/images/icon.png";
+
+  /// Assets for imagesOnboarding1
+  /// assets/images/onboarding1.png
+  static const String imagesOnboarding1 = "assets/images/onboarding1.png";
+
+  /// Assets for imagesOnboarding2
+  /// assets/images/onboarding2.png
+  static const String imagesOnboarding2 = "assets/images/onboarding2.png";
+
   /// Assets for imagesSplash
   /// assets/images/splash.png
   static const String imagesSplash = "assets/images/splash.png";
