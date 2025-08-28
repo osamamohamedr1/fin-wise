@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
@@ -24,6 +26,8 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
         1,
       );
     });
+
+    context.read<AnalysisCubit>().loadDailyChart(selectedDate);
   }
 
   Future<void> _showDatePicker() async {
@@ -38,6 +42,9 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
       setState(() {
         selectedDate = picked;
       });
+
+      // ignore: use_build_context_synchronously
+      context.read<AnalysisCubit>().loadDailyChart(selectedDate);
     }
   }
 

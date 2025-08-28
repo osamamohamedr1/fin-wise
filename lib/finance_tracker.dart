@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/routing/app_router.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/views/widgets/routes.dart';
 import 'package:finance_wise/core/services/transaction_service.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
@@ -22,6 +23,10 @@ class FinanceTracker extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               TransactionsCubit(TransactionsService())..getAllTransactions(),
+        ),
+
+        BlocProvider(
+          create: (context) => AnalysisCubit()..loadDailyChart(DateTime.now()),
         ),
 
         BlocProvider(

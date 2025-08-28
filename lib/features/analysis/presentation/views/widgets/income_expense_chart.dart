@@ -1,9 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/shared/widgets/no_transactions_widget.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
+import 'package:finance_wise/features/analysis/data/repos/chart_helper_funs.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IncomeExpenseChart extends StatelessWidget {
@@ -38,118 +42,108 @@ class IncomeExpenseChart extends StatelessWidget {
           ),
           verticalSpacing(20),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 5,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: SizedBox(
-                width: 350.w,
-                child: BarChart(
-                  BarChartData(
-                    alignment: BarChartAlignment.spaceAround,
-                    maxY: 2500,
-                    titlesData: FlTitlesData(
-                      show: true,
-                      rightTitles: const AxisTitles(
-                        sideTitles: SideTitles(showTitles: false),
-                      ),
-                      topTitles: const AxisTitles(
-                        sideTitles: SideTitles(showTitles: false),
-                      ),
+            height: MediaQuery.sizeOf(context).height * 0.25,
+            width: double.infinity,
+            child: BlocBuilder<AnalysisCubit, AnalysisState>(
+              builder: (context, state) {
+                if (state is AnalysisLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is AnalysisLoaded) {
+                  if (!_hasValidData(state.barGroups)) {
+                    return const NoTransactionsWidget();
+                  }
 
-                      bottomTitles: AxisTitles(
-                        sideTitles: SideTitles(
-                          showTitles: true,
-                          getTitlesWidget: getTitles,
-                          reservedSize: 38,
-                        ),
-                      ),
-                      leftTitles: AxisTitles(
-                        sideTitles: SideTitles(
-                          showTitles: true,
-                          reservedSize: 35,
-                          interval: 500,
-                          getTitlesWidget: leftTitleWidgets,
+                  final maxValue = ChartHelperFuns.calculateMaxValue(
+                    state.barGroups,
+                  );
+                  final responsiveMaxY = ChartHelperFuns.getResponsiveMaxY(
+                    maxValue,
+                  );
+                  final responsiveInterval =
+                      ChartHelperFuns.getResponsiveInterval(responsiveMaxY);
+
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: SizedBox(
+                      width: 750,
+                      child: BarChart(
+                        BarChartData(
+                          alignment: BarChartAlignment.spaceAround,
+                          maxY: responsiveMaxY + 700,
+                          minY: 0,
+                          titlesData: FlTitlesData(
+                            show: true,
+                            rightTitles: const AxisTitles(
+                              sideTitles: SideTitles(showTitles: false),
+                            ),
+                            topTitles: const AxisTitles(
+                              sideTitles: SideTitles(showTitles: false),
+                            ),
+                            bottomTitles: AxisTitles(
+                              sideTitles: SideTitles(
+                                showTitles: true,
+                                getTitlesWidget: getTitles,
+                                reservedSize: 38,
+                              ),
+                            ),
+                            leftTitles: AxisTitles(
+                              sideTitles: SideTitles(
+                                showTitles: true,
+                                reservedSize: 50,
+
+                                interval: responsiveInterval,
+                                getTitlesWidget: (value, meta) =>
+                                    leftTitleWidgets(value, meta),
+                              ),
+                            ),
+                          ),
+                          borderData: FlBorderData(show: false),
+                          gridData: FlGridData(
+                            show: true,
+                            drawVerticalLine: false,
+                            horizontalInterval: responsiveInterval,
+                            getDrawingHorizontalLine: (value) {
+                              return FlLine(
+                                color: Colors.grey.shade300,
+                                strokeWidth: 1,
+                              );
+                            },
+                          ),
+                          barGroups: state.barGroups,
+                          groupsSpace: 8.w,
+                          barTouchData: BarTouchData(
+                            enabled: true,
+                            touchTooltipData: BarTouchTooltipData(
+                              getTooltipColor: (group) => Colors.black87,
+                              tooltipRoundedRadius: 8,
+                              getTooltipItem:
+                                  (group, groupIndex, rod, rodIndex) {
+                                    final isIncome = rodIndex == 0;
+                                    final type = isIncome
+                                        ? LocaleKeys.income.tr()
+                                        : LocaleKeys.expense.tr();
+                                    return BarTooltipItem(
+                                      '$type\n\$${rod.toY.toStringAsFixed(0)}',
+                                      TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12.sp,
+                                      ),
+                                    );
+                                  },
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    borderData: FlBorderData(show: false),
-                    gridData: const FlGridData(show: false),
-                    barGroups: [
-                      BarChartGroupData(
-                        x: 0,
-                        barRods: [
-                          BarChartRodData(
-                            toY: 1500,
-                            color: ColorsManager.mainGreen,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          BarChartRodData(
-                            toY: 1000,
-                            color: ColorsManager.blue,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                        ],
-                      ),
-
-                      BarChartGroupData(
-                        x: 1,
-                        barRods: [
-                          BarChartRodData(
-                            toY: 1500,
-                            color: ColorsManager.mainGreen,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          BarChartRodData(
-                            toY: 1000,
-                            color: ColorsManager.blue,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                        ],
-                      ),
-
-                      BarChartGroupData(
-                        x: 0,
-                        barRods: [
-                          BarChartRodData(
-                            toY: 1500,
-                            color: ColorsManager.mainGreen,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          BarChartRodData(
-                            toY: 1000,
-                            color: ColorsManager.blue,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                        ],
-                      ),
-
-                      BarChartGroupData(
-                        x: 1,
-                        barRods: [
-                          BarChartRodData(
-                            toY: 1500,
-                            color: ColorsManager.mainGreen,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          BarChartRodData(
-                            toY: 1000,
-                            color: ColorsManager.blue,
-                            width: 8.w,
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                  );
+                } else if (state is AnalysisError) {
+                  return Center(child: Text("Error: ${state.message}"));
+                }
+                return const SizedBox();
+              },
             ),
           ),
         ],
@@ -157,33 +151,33 @@ class IncomeExpenseChart extends StatelessWidget {
     );
   }
 
-  // // Calculate chart width based on number of days in current month
-  // double _getChartWidth() {
-  //   final now = DateTime.now();
-  //   final daysInMonth = DateTime(now.year, now.month + 1, 0).day;
-  //   // Give each day about 40 points of width for proper spacing
-  //   return daysInMonth * 40.0;
-  // }
-
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = TextStyle(
       color: ColorsManager.darkIcon,
       fontWeight: FontWeight.w400,
       fontSize: 10.sp,
     );
-    String text;
+
+    String text = '';
+
     if (value == 0) {
       text = '0';
-    } else if (value == 500) {
-      text = '500';
-    } else if (value == 1000) {
-      text = '1K';
-    } else if (value == 1500) {
-      text = '1.5K';
-    } else if (value == 2000) {
-      text = '2K';
+    } else if (value < 1000) {
+      text = value.toInt().toString();
+    } else if (value < 1000000) {
+      final kValue = value / 1000;
+      if (kValue == kValue.toInt()) {
+        text = '${kValue.toInt()}K';
+      } else {
+        text = '${kValue.toStringAsFixed(1)}K';
+      }
     } else {
-      return SizedBox();
+      final mValue = value / 1000000;
+      if (mValue == mValue.toInt()) {
+        text = '${mValue.toInt()}M';
+      } else {
+        text = '${mValue.toStringAsFixed(1)}M';
+      }
     }
 
     return SideTitleWidget(
@@ -197,15 +191,25 @@ class IncomeExpenseChart extends StatelessWidget {
     final style = TextStyle(
       color: ColorsManager.darkIcon,
       fontWeight: FontWeight.w500,
-      fontSize: 10.sp,
+      fontSize: 9.sp,
     );
 
     final dayNumber = value.toInt() + 1;
 
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16,
-      child: Text('$dayNumber', style: style),
-    );
+    if (dayNumber % 2 == 0 || dayNumber == 1) {
+      return SideTitleWidget(
+        axisSide: meta.axisSide,
+        space: 16,
+        child: Text('$dayNumber', style: style),
+      );
+    }
+
+    return const SizedBox.shrink();
+  }
+
+  bool _hasValidData(List<BarChartGroupData> barGroups) {
+    if (barGroups.isEmpty) return false;
+
+    return barGroups.any((group) => group.barRods.any((rod) => rod.toY > 0));
   }
 }
