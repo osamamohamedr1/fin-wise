@@ -24,58 +24,56 @@ class SettingOptionWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(16.r),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
-        child: Row(
-          children: [
-            Container(
-              width: 48.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                color: (iconColor ?? Theme.of(context).primaryColor)
-                    .withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12.r),
+      child: Row(
+        children: [
+          Container(
+            width: 48.w,
+            height: 48.h,
+            decoration: BoxDecoration(
+              color: (iconColor ?? Theme.of(context).primaryColor).withOpacity(
+                0.1,
               ),
-              child: Icon(
-                icon,
-                color: iconColor ?? Theme.of(context).primaryColor,
-                size: 24.r,
-              ),
+              borderRadius: BorderRadius.circular(12.r),
             ),
-            SizedBox(width: 16.w),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+            child: Icon(
+              icon,
+              color: iconColor ?? Theme.of(context).primaryColor,
+              size: 24.r,
+            ),
+          ),
+          SizedBox(width: 16.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
+                if (subtitle != null) ...[
+                  SizedBox(height: 2.h),
                   Text(
-                    title,
+                    subtitle!,
                     style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
                       fontFamily: 'Poppins',
-                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                      color: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.color?.withOpacity(0.6),
                     ),
                   ),
-                  if (subtitle != null) ...[
-                    SizedBox(height: 2.h),
-                    Text(
-                      subtitle!,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Poppins',
-                        color: Theme.of(
-                          context,
-                        ).textTheme.bodyMedium?.color?.withOpacity(0.6),
-                      ),
-                    ),
-                  ],
                 ],
-              ),
+              ],
             ),
-            if (trailing != null) trailing!,
-          ],
-        ),
+          ),
+          if (trailing != null) trailing!,
+        ],
       ),
     );
   }

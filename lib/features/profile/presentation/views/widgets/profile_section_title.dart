@@ -8,14 +8,11 @@ class ProfileSectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          fontSize: 20.sp,
-        ),
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+        fontWeight: FontWeight.w600,
+        fontSize: 20.sp,
       ),
     );
   }

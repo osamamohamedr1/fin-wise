@@ -1,6 +1,5 @@
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/arrow_trailing_icon.dart';
-import 'package:finance_wise/features/profile/presentation/views/widgets/profile_divider.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/setting_option_widget.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +19,10 @@ class ProfileAboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 20,
       children: [
-        verticalSpacing(16),
+        verticalSpacing(0),
         _buildAboutSetting(),
-        const ProfileDivider(),
         _buildShareSetting(),
       ],
     );

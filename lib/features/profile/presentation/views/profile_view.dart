@@ -10,7 +10,7 @@ import 'package:finance_wise/features/profile/presentation/views/widgets/profile
 import 'package:finance_wise/features/profile/presentation/views/widgets/security_bottom_sheet.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -32,10 +32,11 @@ class ProfileView extends StatelessWidget {
           Expanded(
             child: WhiteContainer(
               child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(vertical: 24.h),
+                padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    verticalSpacing(24),
                     ProfileSectionTitle(title: LocaleKeys.settings.tr()),
                     ProfileSettingsSection(
                       onSecurityTap: () => _showSecurityOptions(context),
@@ -66,10 +67,6 @@ class ProfileView extends StatelessWidget {
           context,
           LocaleKeys.pin_setup_coming.tr(),
         ),
-        onFingerprintTap: () => ProfileSnackBars.showComingSoon(
-          context,
-          LocaleKeys.fingerprint_setup_coming.tr(),
-        ),
       ),
     );
   }
@@ -82,6 +79,11 @@ class ProfileView extends StatelessWidget {
   }
 
   void _shareApp(BuildContext context) {
-    ProfileSnackBars.showFeature(context, LocaleKeys.share_app.tr());
+    const String driveLink =
+        'https://drive.google.com/drive/folders/1AAIgosrnrLauMf7-bv-eNwwgd_MYmfg1?usp=drive_link'; // Replace with your actual drive link
+    const String shareMessage =
+        'Check out this amazing Finance Wise app! Download it here: $driveLink';
+
+    Share.share(shareMessage, subject: 'Finance Wise App');
   }
 }

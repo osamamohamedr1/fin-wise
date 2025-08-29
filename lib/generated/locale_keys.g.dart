@@ -109,5 +109,8 @@ abstract class  LocaleKeys {
   static const app_version = 'app_version';
   static const app_description = 'app_description';
   static const ok = 'ok';
+  static const choose_security_method = 'choose_security_method';
+  static const secure_and_private = 'secure_and_private';
+  static const pin_encryption_info = 'pin_encryption_info';
 
 }
