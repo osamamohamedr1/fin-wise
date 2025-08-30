@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/features/home/presentation/views/widgets/saving_card_widget.dart';
-import 'package:finance_wise/generated/lib/generated/locale_keys.g.dart';
+import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

@@ -41,11 +41,14 @@ class _FilterLastTransactionsState extends State<FilterLastTransactions> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: 70.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(

@@ -10,22 +10,24 @@ class NoTransactionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Icons.analytics_outlined,
+            Icons.compare_arrows_rounded,
             size: 48.w,
-            color: ColorsManager.darkContainer,
+            color: isDarkMode
+                ? ColorsManager.lightGreen
+                : ColorsManager.darkContainer,
           ),
           verticalSpacing(16),
           Text(
             LocaleKeys.no_transactions.tr(),
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: ColorsManager.darkContainer,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
           ),
         ],
       ),
