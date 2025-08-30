@@ -45,19 +45,19 @@ class _AddExpensesViewState extends State<AddExpensesView> {
     super.dispose();
   }
 
-  void _saveExpense() {
+  void _saveExpense() async {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
 
     if (amount.isEmpty || selectedDate == null || selectedCategory == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please fill in all required fields")),
+        SnackBar(content: Text(LocaleKeys.please_fill_fields.tr())),
       );
       return;
     }
 
-    context.read<CategoriesCubit>().addCategoriestTx(
+    await context.read<CategoriesCubit>().addCategoriestTx(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
@@ -68,6 +68,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
         note: message,
       ),
     );
+    context.read<HomeCubit>().getNumbersDetails();
   }
 
   @override
@@ -123,18 +124,12 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                         child: BlocListener<CategoriesCubit, CategoriesState>(
                           listener: (context, state) {
                             if (state is CategoriesTxAdded) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(LocaleKeys.expense_saved.tr()),
-                                ),
-                              );
                               context.pop();
                               context
                                   .read<CategoriesCubit>()
                                   .getCategoryExpenses(
                                     category: selectedCategory!,
                                   );
-                              context.read<HomeCubit>().getNumbersDetails();
                             } else if (state is CategoriesError) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(state.message)),
