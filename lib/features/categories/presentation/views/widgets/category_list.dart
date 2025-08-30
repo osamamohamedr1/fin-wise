@@ -1,5 +1,4 @@
 import 'package:finance_wise/core/routing/routes.dart';
-import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/core/models/category_item_model.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
@@ -13,25 +12,22 @@ class CategoryGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsManager.lightBackground,
-      body: GridView.builder(
-        padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
-        itemCount: categoriesList.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          mainAxisExtent: MediaQuery.sizeOf(context).width * 0.34,
-        ),
-        itemBuilder: (context, index) {
-          final category = categoriesList[index];
-          return CategoryCard(
-            category: category,
-            onTap: () => _onCategoryTap(context, category),
-          );
-        },
+    return GridView.builder(
+      padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
+      itemCount: categoriesList.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        mainAxisExtent: MediaQuery.sizeOf(context).width * 0.34,
       ),
+      itemBuilder: (context, index) {
+        final category = categoriesList[index];
+        return CategoryCard(
+          category: category,
+          onTap: () => _onCategoryTap(context, category),
+        );
+      },
     );
   }
 }

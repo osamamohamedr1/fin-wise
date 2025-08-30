@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/core/routing/routes.dart';
+import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/core/shared/widgets/select_transiction_date_row.dart';
 import 'package:finance_wise/core/shared/widgets/transaction_list_item.dart';
@@ -22,6 +23,8 @@ class TransactionsView extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamed(context, Routes.addIncome);
         },
+        backgroundColor: ColorsManager.mainGreen,
+        foregroundColor: Colors.white,
         child: const Icon(Icons.add),
       ),
       appBar: AppBar(

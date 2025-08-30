@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/models/category_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,7 +46,6 @@ class CategoryCard extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.w500,
                 fontSize: 14.sp,
-                color: ColorsManager.darkContainer,
               ),
             ),
           ),

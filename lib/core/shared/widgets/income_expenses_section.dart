@@ -13,6 +13,8 @@ class IncomeExpensesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * .8,
       child: BlocBuilder<HomeCubit, HomeState>(
@@ -35,8 +37,8 @@ class IncomeExpensesSection extends StatelessWidget {
                         state.income,
                         state.expense,
                       ),
-                      backgroundColor: Colors.white,
-                      color: ColorsManager.darkContainer,
+                      backgroundColor: isDarkMode ? Colors.grey.shade700 : Colors.white,
+                      color: isDarkMode ? ColorsManager.mainGreen : ColorsManager.darkContainer,
                     ),
 
                     Positioned(
@@ -45,7 +47,7 @@ class IncomeExpensesSection extends StatelessWidget {
                       child: Text(
                         '${FinancialCalculator.getExpensePercentageAsInt(state.income, state.expense)}%',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: ColorsManager.darkContainer,
+                          color: isDarkMode ? Colors.white : ColorsManager.darkContainer,
                         ),
                       ),
                     ),
@@ -57,7 +59,14 @@ class IncomeExpensesSection extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: SvgPicture.asset(Assets.svgsCheck, width: 16),
+                      child: SvgPicture.asset(
+                        Assets.svgsCheck, 
+                        width: 16,
+                        colorFilter: ColorFilter.mode(
+                          isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
                     Flexible(
                       child: Text(
