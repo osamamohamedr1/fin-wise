@@ -1,12 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/core/shared/widgets/white_container.dart';
+import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/about_dialog.dart'
     as custom;
 import 'package:finance_wise/features/profile/presentation/views/widgets/profile_about_section.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/profile_section_title.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/profile_settings_section.dart';
-import 'package:finance_wise/features/profile/presentation/views/widgets/profile_snack_bars.dart';
 import 'package:finance_wise/features/profile/presentation/views/widgets/security_bottom_sheet.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -63,10 +64,10 @@ class ProfileView extends StatelessWidget {
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) => SecurityBottomSheet(
-        onPinTap: () => ProfileSnackBars.showComingSoon(
-          context,
-          LocaleKeys.pin_setup_coming.tr(),
-        ),
+        onPinTap: () {
+          context.pop();
+          context.pushNamed(Routes.pinView);
+        },
       ),
     );
   }
