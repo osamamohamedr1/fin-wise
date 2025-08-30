@@ -5,7 +5,6 @@ import 'package:finance_wise/features/analysis/presentation/manager/cubit/analys
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 
 class MonthChangeRow extends StatefulWidget {
