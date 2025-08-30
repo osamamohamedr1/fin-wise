@@ -70,16 +70,11 @@ class IncomeExpenseChart extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Container(
                       width: 750,
-                      padding: EdgeInsets.only(
-                        top: 40.h,
-                        bottom: 10.h,
-                      ), // Add padding for tooltips
+                      padding: EdgeInsets.only(top: 40.h, bottom: 10.h),
                       child: BarChart(
                         BarChartData(
                           alignment: BarChartAlignment.spaceAround,
-                          maxY:
-                              responsiveMaxY +
-                              1000, // Increased padding for tooltip space
+                          maxY: responsiveMaxY + 4000,
                           minY: 0,
                           titlesData: FlTitlesData(
                             show: true,
@@ -129,25 +124,23 @@ class IncomeExpenseChart extends StatelessWidget {
                               tooltipPadding: EdgeInsets.all(8.w),
                               fitInsideHorizontally: true,
                               fitInsideVertically: true,
-                              tooltipMargin:
-                                  12, // Increased margin for better spacing
-                              direction:
-                                  TooltipDirection.auto, // Auto positioning
-                              getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                                final isIncome = rodIndex == 0;
-                                final type = isIncome
-                                    ? LocaleKeys.income.tr()
-                                    : LocaleKeys.expense.tr();
-                                return BarTooltipItem(
-                                  '$type\n\$${rod.toY.toStringAsFixed(0)}',
-                                  TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 11
-                                        .sp, // Slightly smaller for better fit
-                                  ),
-                                );
-                              },
+                              tooltipMargin: 12,
+                              direction: TooltipDirection.auto,
+                              getTooltipItem:
+                                  (group, groupIndex, rod, rodIndex) {
+                                    final isIncome = rodIndex == 0;
+                                    final type = isIncome
+                                        ? LocaleKeys.income.tr()
+                                        : LocaleKeys.expense.tr();
+                                    return BarTooltipItem(
+                                      '$type\n\$${rod.toY.toStringAsFixed(0)}',
+                                      TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 11.sp,
+                                      ),
+                                    );
+                                  },
                             ),
                           ),
                         ),

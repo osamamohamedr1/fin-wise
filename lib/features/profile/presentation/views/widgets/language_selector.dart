@@ -26,6 +26,8 @@ class LanguageSelector extends StatelessWidget {
   }
 
   Widget _buildLanguageButton(BuildContext context, Locale currentLocale) {
+    final isdarkMode = Theme.of(context).brightness == Brightness.dark;
+
     final currentLanguage = _languages.firstWhere(
       (lang) => lang['code'] == currentLocale.languageCode,
       orElse: () => _languages.first,
@@ -34,7 +36,9 @@ class LanguageSelector extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isdarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
