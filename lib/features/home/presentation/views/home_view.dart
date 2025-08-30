@@ -17,8 +17,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    
     return BlocProvider(
       create: (context) => HomeTransactionsCubit(TransactionsService()),
       child: Scaffold(
@@ -40,17 +38,13 @@ class HomeView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CircleAvatar(
-                backgroundColor: isDarkMode 
-                    ? ColorsManager.darkContainer 
-                    : ColorsManager.lightBackground,
+                backgroundColor: ColorsManager.lightBackground,
                 radius: 17,
                 child: Center(
                   child: Icon(
                     Icons.notifications_outlined,
                     size: 24,
-                    color: isDarkMode 
-                        ? Colors.white70 
-                        : ColorsManager.darkContainer,
+                    color: ColorsManager.darkContainer,
                   ),
                 ),
               ),

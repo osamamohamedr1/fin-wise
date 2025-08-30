@@ -11,22 +11,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getNumbersDetails() async {
     try {
-      emit(NumbersLoading());
       final balance = await transactionsService.getTotalBalance();
       final expense = await transactionsService.getTotalExpenses();
       final income = await transactionsService.getTotalIncome();
-      final lastMonthRevenue = await transactionsService.getLastMonthRevenue();
-      final lastMonthExpenses = await transactionsService
-          .getLastMonthExpenses();
-      emit(
-        NumbersLoaded(
-          balance,
-          expense,
-          income,
-          lastMonthRevenue,
-          lastMonthExpenses,
-        ),
-      );
+      emit(NumbersLoaded(balance, expense, income));
     } catch (e) {
       emit(HomeError(message: e.toString()));
     }

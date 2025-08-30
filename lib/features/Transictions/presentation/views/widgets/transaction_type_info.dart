@@ -18,11 +18,16 @@ class TransactionTypeInfo extends StatelessWidget {
   final bool isSelected;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8),
 
       decoration: BoxDecoration(
-        color: isSelected ? ColorsManager.blue : ColorsManager.lightBackground,
+        color: isSelected
+            ? ColorsManager.blue
+            : isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightBackground,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(

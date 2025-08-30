@@ -37,7 +37,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
     super.dispose();
   }
 
-  void _saveIncome() async {
+  void _saveIncome() {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
@@ -49,17 +49,17 @@ class _AddIncomeViewState extends State<AddIncomeView> {
       return;
     }
 
-    await context.read<TransactionsCubit>().addTransactions(
+    context.read<TransactionsCubit>().addTransactions(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
         amount: double.tryParse(amount) ?? 0.0,
         date: selectedDate!,
         isExpense: false,
+        expensesTitle: title,
         note: message,
       ),
     );
-    context.read<HomeCubit>().getNumbersDetails();
   }
 
   @override
@@ -111,34 +111,40 @@ class _AddIncomeViewState extends State<AddIncomeView> {
                       ),
                       verticalSpacing(4),
                       Center(
-                        child:
-                            BlocListener<TransactionsCubit, TransactionsState>(
-                              listener: (context, state) {
-                                if (state is TransactionsAdded) {
-                                  context.pop();
-                                  context
-                                      .read<TransactionsCubit>()
-                                      .getAllTransactions();
-                                  context.read<HomeCubit>().getNumbersDetails();
-                                } else if (state is TransactionsError) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(state.message)),
-                                  );
-                                }
-                              },
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  _saveIncome();
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: ColorsManager.mainGreen,
+                        child: BlocListener<TransactionsCubit, TransactionsState>(
+                          listener: (context, state) {
+                            if (state is TransactionsAdded) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    "${LocaleKeys.income.tr()} saved successfully!",
+                                  ),
                                 ),
-                                child: Text(
-                                  LocaleKeys.income.tr(),
-                                  style: Theme.of(context).textTheme.bodySmall,
-                                ),
-                              ),
+                              );
+                              context.pop();
+                              context
+                                  .read<TransactionsCubit>()
+                                  .getAllTransactions();
+                              context.read<HomeCubit>().getNumbersDetails();
+                            } else if (state is TransactionsError) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(state.message)),
+                              );
+                            }
+                          },
+                          child: ElevatedButton(
+                            onPressed: () {
+                              _saveIncome();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: ColorsManager.mainGreen,
                             ),
+                            child: Text(
+                              LocaleKeys.income.tr(),
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),

@@ -10,8 +10,8 @@ abstract class  LocaleKeys {
   static const income = 'income';
   static const expense = 'expense';
   static const on_goals = 'on_goals';
-  static const revenue_last_month = 'revenue_last_month';
-  static const expenses_last_month = 'expenses_last_month';
+  static const revenue_last_week = 'revenue_last_week';
+  static const food_last_week = 'food_last_week';
   static const daily = 'daily';
   static const weekly = 'weekly';
   static const monthly = 'monthly';

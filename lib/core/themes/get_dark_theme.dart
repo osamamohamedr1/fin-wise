@@ -13,7 +13,6 @@ ThemeData getDarkTheme() {
       primary: ColorsManager.mainGreen,
       secondary: ColorsManager.lightGreen,
       surface: ColorsManager.darkContainer,
-      background: ColorsManager.darkthemeBackground,
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: ColorsManager.darkBackground,
@@ -28,9 +27,7 @@ ThemeData getDarkTheme() {
       backgroundColor: ColorsManager.mainGreen,
       foregroundColor: Colors.white,
     ),
-    cardTheme: const CardThemeData(
-      color: ColorsManager.darkContainer,
-    ),
+    cardTheme: const CardThemeData(color: ColorsManager.darkContainer),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: ColorsManager.mainGreen,

@@ -113,40 +113,4 @@ class TransactionsService {
     return income.fold<double>(0, (sum, tx) => sum + tx.amount) -
         expenses.fold<double>(0, (sum, tx) => sum + tx.amount);
   }
-
-  Future<double> getLastMonthRevenue() async {
-    final now = DateTime.now();
-
-    final lastMonthYear = now.month == 1 ? now.year - 1 : now.year;
-    final lastMonthMonth = now.month == 1 ? 12 : now.month - 1;
-
-    final lastMonthIncome = txBox.values
-        .where(
-          (tx) =>
-              !tx.isExpense &&
-              tx.date.year == lastMonthYear &&
-              tx.date.month == lastMonthMonth,
-        )
-        .toList();
-
-    return lastMonthIncome.fold<double>(0, (sum, tx) => sum + tx.amount);
-  }
-
-  Future<double> getLastMonthExpenses() async {
-    final now = DateTime.now();
-
-    final lastMonthYear = now.month == 1 ? now.year - 1 : now.year;
-    final lastMonthMonth = now.month == 1 ? 12 : now.month - 1;
-
-    final lastMonthExpenses = txBox.values
-        .where(
-          (tx) =>
-              tx.isExpense &&
-              tx.date.year == lastMonthYear &&
-              tx.date.month == lastMonthMonth,
-        )
-        .toList();
-
-    return lastMonthExpenses.fold<double>(0, (sum, tx) => sum + tx.amount);
-  }
 }

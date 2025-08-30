@@ -42,14 +42,14 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
           boxShadow: [
             BoxShadow(
               blurRadius: 4,
-              offset: const Offset(0, 4),
-              color: isDarkMode ? Colors.black54 : Colors.black38,
+              offset: Offset(0, 4),
+              color: Colors.black38,
             ),
           ],
           color: isDarkMode
               ? ColorsManager.darkBottomBar
               : ColorsManager.lightGreen,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(60.0)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(60.0)),
         ),
         child: BottomNavigationBar(
           currentIndex: _selectedIndex,
@@ -170,9 +170,9 @@ class ActiveIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: ColorsManager.mainGreen,
-        borderRadius: const BorderRadius.all(Radius.circular(18.0)),
+        borderRadius: BorderRadius.all(Radius.circular(18.0)),
       ),
       child: SvgPicture.asset(
         icon,

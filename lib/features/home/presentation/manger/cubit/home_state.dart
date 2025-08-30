@@ -8,18 +8,10 @@ final class HomeInitial extends HomeState {}
 final class NumbersLoading extends HomeState {}
 
 final class NumbersLoaded extends HomeState {
-  NumbersLoaded(
-    this.balance,
-    this.expense,
-    this.income,
-    this.lastMonthRevenue,
-    this.lastMonthExpenses,
-  );
+  NumbersLoaded(this.balance, this.expense, this.income);
   final double balance;
   final double expense;
   final double income;
-  final double lastMonthRevenue;
-  final double lastMonthExpenses;
 }
 
 final class HomeError extends HomeState {

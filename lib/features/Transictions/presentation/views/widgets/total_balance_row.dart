@@ -8,11 +8,15 @@ class TotalBalanceRow extends StatelessWidget {
   final double totalBalance;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: ColorsManager.lightBackground,
+        color: isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightBackground,
 
         borderRadius: BorderRadius.circular(16),
       ),
