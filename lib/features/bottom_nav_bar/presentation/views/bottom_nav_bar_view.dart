@@ -51,103 +51,109 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
               : ColorsManager.lightGreen,
           borderRadius: BorderRadius.vertical(top: Radius.circular(60.0)),
         ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: ColorsManager.mainGreen,
-          unselectedItemColor: isDarkMode
-              ? Colors.white70
-              : ColorsManager.darkContainer,
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.svgsHome,
-                width: 25,
-                colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
-                  BlendMode.srcIn,
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: ColorsManager.mainGreen,
+            unselectedItemColor: isDarkMode
+                ? Colors.white70
+                : ColorsManager.darkContainer,
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  Assets.svgsHome,
+                  width: 25,
+                  colorFilter: ColorFilter.mode(
+                    isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                    BlendMode.srcIn,
+                  ),
                 ),
-              ),
-              activeIcon: ActiveIcon(
-                icon: Assets.svgsHome,
-                width: 25,
-                isDarkMode: isDarkMode,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.svgsAnalysis,
-                width: 30,
-                colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
-                  BlendMode.srcIn,
+                activeIcon: ActiveIcon(
+                  icon: Assets.svgsHome,
+                  width: 25,
+                  isDarkMode: isDarkMode,
                 ),
+                label: 'Home',
               ),
-              activeIcon: ActiveIcon(
-                icon: Assets.svgsAnalysis,
-                isDarkMode: isDarkMode,
-              ),
-              label: 'Analysis',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.svgsTransaction,
-                width: 32,
-                colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
-                  BlendMode.srcIn,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  Assets.svgsAnalysis,
+                  width: 30,
+                  colorFilter: ColorFilter.mode(
+                    isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                    BlendMode.srcIn,
+                  ),
                 ),
-              ),
-              activeIcon: ActiveIcon(
-                icon: Assets.svgsTransaction,
-                width: 33,
-                isDarkMode: isDarkMode,
-              ),
-              label: 'Transactions',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.svgsCategorY,
-                width: 28,
-                colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
-                  BlendMode.srcIn,
+                activeIcon: ActiveIcon(
+                  icon: Assets.svgsAnalysis,
+                  isDarkMode: isDarkMode,
                 ),
+                label: 'Analysis',
               ),
-              activeIcon: ActiveIcon(
-                icon: Assets.svgsCategorY,
-                width: 28,
-                isDarkMode: isDarkMode,
-              ),
-              label: 'Categories',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Assets.svgsPROFILE,
-                width: 21,
-                colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
-                  BlendMode.srcIn,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  Assets.svgsTransaction,
+                  width: 32,
+                  colorFilter: ColorFilter.mode(
+                    isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                    BlendMode.srcIn,
+                  ),
                 ),
+                activeIcon: ActiveIcon(
+                  icon: Assets.svgsTransaction,
+                  width: 33,
+                  isDarkMode: isDarkMode,
+                ),
+                label: 'Transactions',
               ),
-              activeIcon: ActiveIcon(
-                icon: Assets.svgsPROFILE,
-                width: 22,
-                isDarkMode: isDarkMode,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  Assets.svgsCategorY,
+                  width: 28,
+                  colorFilter: ColorFilter.mode(
+                    isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: ActiveIcon(
+                  icon: Assets.svgsCategorY,
+                  width: 28,
+                  isDarkMode: isDarkMode,
+                ),
+                label: 'Categories',
               ),
-              label: 'Profile',
-            ),
-          ],
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  Assets.svgsPROFILE,
+                  width: 21,
+                  colorFilter: ColorFilter.mode(
+                    isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: ActiveIcon(
+                  icon: Assets.svgsPROFILE,
+                  width: 22,
+                  isDarkMode: isDarkMode,
+                ),
+                label: 'Profile',
+              ),
+            ],
+          ),
         ),
       ),
     );
