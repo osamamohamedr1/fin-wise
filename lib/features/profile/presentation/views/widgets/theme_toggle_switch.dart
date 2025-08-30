@@ -18,11 +18,6 @@ class ThemeToggleSwitch extends StatelessWidget {
             onChanged: (value) {
               context.read<ThemeCubit>().toggleTheme();
             },
-            activeColor: Theme.of(context).primaryColor,
-            activeTrackColor: Theme.of(context).primaryColor,
-            inactiveThumbColor: Colors.grey[400],
-            inactiveTrackColor: Colors.grey[300],
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
         );
       },

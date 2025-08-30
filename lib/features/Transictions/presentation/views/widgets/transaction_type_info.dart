@@ -40,9 +40,11 @@ class TransactionTypeInfo extends StatelessWidget {
             width: 22,
             colorFilter: ColorFilter.mode(
               !isSelected
-                  ? (isExpense
-                        ? ColorsManager.darkContainer
-                        : ColorsManager.blue)
+                  ? (isDarkMode
+                        ? ColorsManager.lightGreen
+                        : (isExpense
+                              ? ColorsManager.darkContainer
+                              : ColorsManager.blue))
                   : Colors.white,
               BlendMode.srcIn,
             ),
@@ -50,16 +52,20 @@ class TransactionTypeInfo extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: isSelected ? Colors.white : null,
+              color: isSelected
+                  ? Colors.white
+                  : (isDarkMode ? Colors.white : null),
             ),
           ),
           Text(
             amount,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: !isSelected
-                  ? isExpense
-                        ? ColorsManager.blue
-                        : ColorsManager.darkContainer
+                  ? (isDarkMode
+                        ? Colors.white
+                        : (isExpense
+                              ? ColorsManager.blue
+                              : ColorsManager.darkContainer))
                   : Colors.white,
             ),
           ),
