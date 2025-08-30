@@ -40,7 +40,7 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
                     : FontWeight.w500,
                 color: selectedCategory == null
                     ? ColorsManager.mainGreen
-                    : ColorsManager.darkIcon,
+                    : ColorsManager.darkContainer,
                 fontSize: 14,
               ),
             ),

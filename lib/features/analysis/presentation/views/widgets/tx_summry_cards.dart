@@ -39,7 +39,7 @@ class SummaryCard extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: ColorsManager.darkIcon,
+              color: ColorsManager.darkContainer,
               fontWeight: FontWeight.w500,
             ),
           ),

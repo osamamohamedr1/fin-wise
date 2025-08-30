@@ -47,7 +47,7 @@ class CategoryCard extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.w500,
                 fontSize: 14.sp,
-                color: ColorsManager.darkIcon,
+                color: ColorsManager.darkContainer,
               ),
             ),
           ),

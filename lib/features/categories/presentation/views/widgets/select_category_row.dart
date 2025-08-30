@@ -55,7 +55,7 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
                     : FontWeight.w500,
                 color: widget.selectedCategory == null
                     ? ColorsManager.mainGreen
-                    : ColorsManager.darkIcon,
+                    : ColorsManager.darkContainer,
                 fontSize: 14,
               ),
             ),

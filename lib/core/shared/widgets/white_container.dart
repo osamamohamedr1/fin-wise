@@ -7,12 +7,15 @@ class WhiteContainer extends StatelessWidget {
   final double? height;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       height: height,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
-        color: ColorsManager.lightBackground,
+        color: isDarkMode
+            ? ColorsManager.darkContainer
+            : ColorsManager.lightBackground,
         borderRadius: BorderRadius.vertical(top: Radius.circular(60)),
       ),
       child: child,

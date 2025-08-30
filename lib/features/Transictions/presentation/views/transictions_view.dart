@@ -122,6 +122,8 @@ class NoTransacionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -129,14 +131,14 @@ class NoTransacionsWidget extends StatelessWidget {
           Icon(
             Icons.receipt_long_outlined,
             size: 64,
-            color: Colors.grey.shade400,
+            color: isDarkMode ? Colors.grey.shade600 : Colors.grey.shade400,
           ),
           verticalSpacing(16),
           Text(
             LocaleKeys.no_transactions.tr(),
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium?.copyWith(color: Colors.grey.shade600),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: isDarkMode ? Colors.grey.shade400 : Colors.grey.shade600,
+            ),
           ),
         ],
       ),

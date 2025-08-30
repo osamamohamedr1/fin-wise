@@ -35,7 +35,9 @@ class TransactionTypeInfo extends StatelessWidget {
             width: 22,
             colorFilter: ColorFilter.mode(
               !isSelected
-                  ? (isExpense ? ColorsManager.darkIcon : ColorsManager.blue)
+                  ? (isExpense
+                        ? ColorsManager.darkContainer
+                        : ColorsManager.blue)
                   : Colors.white,
               BlendMode.srcIn,
             ),
@@ -52,7 +54,7 @@ class TransactionTypeInfo extends StatelessWidget {
               color: !isSelected
                   ? isExpense
                         ? ColorsManager.blue
-                        : ColorsManager.darkIcon
+                        : ColorsManager.darkContainer
                   : Colors.white,
             ),
           ),

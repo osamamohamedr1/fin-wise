@@ -21,7 +21,7 @@ class ProfileSettingsSection extends StatelessWidget {
         verticalSpacing(0),
         _buildLanguageSetting(),
         _buildThemeSetting(),
-        _buildSecuritySetting(),
+        // _buildSecuritySetting(),
       ],
     );
   }
@@ -46,6 +46,7 @@ class ProfileSettingsSection extends StatelessWidget {
     );
   }
 
+  // ignore: unused_element
   Widget _buildSecuritySetting() {
     return SettingOptionWidget(
       icon: Icons.security,

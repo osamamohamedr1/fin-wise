@@ -45,15 +45,10 @@ class LanguageSelector extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w500,
-              color: Theme.of(context).primaryColor,
             ),
           ),
           horizontalSpacing(4),
-          Icon(
-            Icons.keyboard_arrow_down,
-            size: 18.r,
-            color: Theme.of(context).primaryColor,
-          ),
+          Icon(Icons.keyboard_arrow_down, size: 18.r),
         ],
       ),
     );

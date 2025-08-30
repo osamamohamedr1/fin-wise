@@ -17,13 +17,13 @@ class NoTransactionsWidget extends StatelessWidget {
           Icon(
             Icons.analytics_outlined,
             size: 48.w,
-            color: ColorsManager.darkIcon,
+            color: ColorsManager.darkContainer,
           ),
           verticalSpacing(16),
           Text(
             LocaleKeys.no_transactions.tr(),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: ColorsManager.darkIcon,
+              color: ColorsManager.darkContainer,
               fontWeight: FontWeight.w500,
             ),
           ),

@@ -11,19 +11,13 @@ class ThemeToggleSwitch extends StatelessWidget {
       builder: (context, themeState) {
         final isDarkMode = themeState == ThemeMode.dark;
 
-        return Transform.scale(
-          scale: 0.8,
-          child: Switch(
-            value: isDarkMode,
-            onChanged: (value) {
-              context.read<ThemeCubit>().toggleTheme();
-            },
-            activeColor: Theme.of(context).primaryColor,
-            activeTrackColor: Theme.of(context).primaryColor.withOpacity(0.3),
-            inactiveThumbColor: Colors.grey[400],
-            inactiveTrackColor: Colors.grey[300],
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
+        return Switch(
+          value: isDarkMode,
+          onChanged: (value) {
+            context.read<ThemeCubit>().toggleTheme();
+          },
+          activeColor: Theme.of(context).primaryColor,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         );
       },
     );

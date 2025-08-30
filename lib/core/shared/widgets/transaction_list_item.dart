@@ -73,7 +73,7 @@ class TransactionListItem extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: transaction.isExpense
                       ? Colors.red
-                      : ColorsManager.darkIcon,
+                      : ColorsManager.darkContainer,
                 ),
               ),
             ),

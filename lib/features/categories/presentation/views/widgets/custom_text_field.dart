@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       style: Theme.of(context).textTheme.bodySmall?.copyWith(
         fontWeight: FontWeight.w500,
-        color: ColorsManager.darkIcon,
+        color: ColorsManager.darkContainer,
         fontSize: 13,
       ),
       decoration: InputDecoration(

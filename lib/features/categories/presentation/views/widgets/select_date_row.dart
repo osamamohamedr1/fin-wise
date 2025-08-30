@@ -44,7 +44,7 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                     : FontWeight.w500,
                 color: widget.selectedDate == null
                     ? ColorsManager.mainGreen
-                    : ColorsManager.darkIcon,
+                    : ColorsManager.darkContainer,
               ),
             ),
           ),

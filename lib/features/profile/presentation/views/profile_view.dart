@@ -37,7 +37,7 @@ class ProfileView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    verticalSpacing(24),
+                    verticalSpacing(50),
                     ProfileSectionTitle(title: LocaleKeys.settings.tr()),
                     ProfileSettingsSection(
                       onSecurityTap: () => _showSecurityOptions(context),

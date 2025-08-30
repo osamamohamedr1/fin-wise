@@ -36,7 +36,7 @@ class IncomeExpensesSection extends StatelessWidget {
                         state.expense,
                       ),
                       backgroundColor: Colors.white,
-                      color: ColorsManager.darkIcon,
+                      color: ColorsManager.darkContainer,
                     ),
 
                     Positioned(
@@ -45,7 +45,7 @@ class IncomeExpensesSection extends StatelessWidget {
                       child: Text(
                         '${FinancialCalculator.getExpensePercentageAsInt(state.income, state.expense)}%',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: ColorsManager.darkIcon,
+                          color: ColorsManager.darkContainer,
                         ),
                       ),
                     ),

@@ -37,7 +37,7 @@ class IncomeExpenseChart extends StatelessWidget {
             '${LocaleKeys.income.tr()} & ${LocaleKeys.expense.tr()}',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w600,
-              color: ColorsManager.darkIcon,
+              color: ColorsManager.darkContainer,
             ),
           ),
           verticalSpacing(20),
@@ -168,7 +168,7 @@ class IncomeExpenseChart extends StatelessWidget {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = TextStyle(
-      color: ColorsManager.darkIcon,
+      color: ColorsManager.darkContainer,
       fontWeight: FontWeight.w400,
       fontSize: 10.sp,
     );
@@ -204,7 +204,7 @@ class IncomeExpenseChart extends StatelessWidget {
 
   Widget getTitles(double value, TitleMeta meta) {
     final style = TextStyle(
-      color: ColorsManager.darkIcon,
+      color: ColorsManager.darkContainer,
       fontWeight: FontWeight.w500,
       fontSize: 9.sp,
     );
