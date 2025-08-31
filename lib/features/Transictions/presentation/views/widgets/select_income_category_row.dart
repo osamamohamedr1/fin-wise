@@ -52,7 +52,7 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
                     ? ColorsManager.mainGreen
                     : isDarkMode
                     ? ColorsManager.lightBackground
-                    : ColorsManager.mainGreen,
+                    : ColorsManager.darkBackground,
 
                 fontSize: 14.sp,
               ),

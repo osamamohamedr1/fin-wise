@@ -5,6 +5,7 @@ import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/core/shared/widgets/white_container.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/views/widgets/select_income_category_row.dart';
@@ -37,7 +38,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
     super.dispose();
   }
 
-  void _saveIncome() {
+  void _saveIncome() async {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
@@ -49,7 +50,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
       return;
     }
 
-    context.read<TransactionsCubit>().addTransactions(
+    await context.read<TransactionsCubit>().addTransactions(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
@@ -60,7 +61,8 @@ class _AddIncomeViewState extends State<AddIncomeView> {
         note: message,
       ),
     );
-    context.read<HomeCubit>().getNumbersDetails();
+    await context.read<HomeCubit>().getNumbersDetails();
+    await context.read<AnalysisCubit>().loadDailyChart(DateTime.now());
   }
 
   @override

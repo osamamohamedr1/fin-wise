@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/extensions.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
 import 'package:finance_wise/core/shared/widgets/white_container.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
@@ -45,7 +46,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
     super.dispose();
   }
 
-  void _saveExpense() {
+  void _saveExpense() async {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
@@ -57,7 +58,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
       return;
     }
 
-    context.read<CategoriesCubit>().addCategoriestTx(
+    await context.read<CategoriesCubit>().addCategoriestTx(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
@@ -68,7 +69,8 @@ class _AddExpensesViewState extends State<AddExpensesView> {
         note: message,
       ),
     );
-    context.read<HomeCubit>().getNumbersDetails();
+    await context.read<HomeCubit>().getNumbersDetails();
+    await context.read<AnalysisCubit>().loadDailyChart(DateTime.now());
   }
 
   @override

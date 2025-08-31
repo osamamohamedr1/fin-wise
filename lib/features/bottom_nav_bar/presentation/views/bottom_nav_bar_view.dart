@@ -17,6 +17,15 @@ class BottomNavBarView extends StatefulWidget {
 
 class _BottomNavBarViewState extends State<BottomNavBarView> {
   int _selectedIndex = 0;
+
+  final List<Widget> _pages = const [
+    HomeView(),
+    AnalysisView(),
+    TransactionsView(),
+    CategoriesView(),
+    ProfileView(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -25,16 +34,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
       backgroundColor: isDarkMode
           ? ColorsManager.darkContainer
           : ColorsManager.lightBackground,
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: const [
-          HomeView(),
-          AnalysisView(),
-          TransactionsView(),
-          CategoriesView(),
-          ProfileView(),
-        ],
-      ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         height: MediaQuery.sizeOf(context).height / 8,
         padding: const EdgeInsets.symmetric(horizontal: 24),
