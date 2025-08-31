@@ -1,5 +1,5 @@
+import 'package:finance_wise/core/shared/widgets/no_transactions_widget.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
-import 'package:finance_wise/features/Transictions/presentation/views/transictions_view.dart';
 import 'package:finance_wise/features/categories/presentation/manager/transactions_cubit/categories_cubit.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
 import 'package:finance_wise/features/categories/presentation/views/widgets/category_expenses_item.dart';
@@ -25,7 +25,7 @@ class CategoryExpensesListDetails extends StatelessWidget {
 
         if (state is CategoriesTxLoaded) {
           if (state.categoryTxList.isEmpty) {
-            return Center(child: NoTransacionsWidget());
+            return Center(child: NoTransactionsWidget());
           }
 
           return RefreshIndicator(

@@ -44,18 +44,18 @@ class IncomeExpensesSection extends StatelessWidget {
                           : ColorsManager.darkContainer,
                     ),
 
-                    Positioned(
-                      right: 20,
-                      top: 4,
-                      child: Text(
-                        '${FinancialCalculator.getExpensePercentageAsInt(state.income, state.expense)}%',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: !isDarkMode
-                              ? ColorsManager.darkContainer
-                              : ColorsManager.lightBackground,
-                        ),
-                      ),
-                    ),
+                    // Positioned(
+                    //   right: 20,
+                    //   top: 4,
+                    //   child: Text(
+                    //     '${FinancialCalculator.getExpensePercentageAsInt(state.income, state.expense)}%',
+                    //     style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    //       color: !isDarkMode
+                    //           ? ColorsManager.darkContainer
+                    //           : ColorsManager.lightBackground,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
 

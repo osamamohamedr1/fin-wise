@@ -10,9 +10,9 @@
   "food_last_week": "الطعام الأسبوع الماضي",
   "revenue_last_month": "الإيرادات الشهر الماضي",
   "expenses_last_month": "المصروفات الشهر الماضي",
-  "daily": "يومي",
-  "weekly": "أسبوعي",
-  "monthly": "شهري",
+  "daily": "اليوم",
+  "weekly": "آخر 7 أيام",
+  "monthly": "هذا الشهر",
   "transactions": "المعاملات",
   "latest_transactions": "أحدث المعاملات",
 

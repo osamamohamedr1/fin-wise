@@ -16,6 +16,7 @@ String getDefaultIcon(String category) {
     case 'groceries':
       return Assets.svgsGroceries;
     case 'salary':
+    case 'freelance':
       return Assets.svgsSalary;
     case 'rent':
       return Assets.svgsRent;

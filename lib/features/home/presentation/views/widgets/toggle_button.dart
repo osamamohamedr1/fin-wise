@@ -18,12 +18,12 @@ class ToggleButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
           color: isSelected ? ColorsManager.mainGreen : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Text(label, style: Theme.of(context).textTheme.bodyLarge),
+        child: Text(label, style: Theme.of(context).textTheme.bodyMedium),
       ),
     );
   }

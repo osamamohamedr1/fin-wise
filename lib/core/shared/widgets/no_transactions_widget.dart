@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NoTransactionsWidget extends StatelessWidget {
   const NoTransactionsWidget({super.key});
@@ -15,12 +16,14 @@ class NoTransactionsWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.compare_arrows_rounded,
-            size: 48.w,
-            color: isDarkMode
-                ? ColorsManager.lightGreen
-                : ColorsManager.darkContainer,
+          SvgPicture.asset(
+            Assets.svgsTransaction,
+            colorFilter: ColorFilter.mode(
+              isDarkMode
+                  ? ColorsManager.lightGreen
+                  : ColorsManager.darkBackground,
+              BlendMode.srcIn,
+            ),
           ),
           verticalSpacing(16),
           Text(

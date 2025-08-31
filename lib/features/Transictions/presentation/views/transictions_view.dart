@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/shared/widgets/no_transactions_widget.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
@@ -72,7 +73,7 @@ class TransactionsView extends StatelessWidget {
                           );
                         } else if (state is TransactionsLoaded) {
                           if (state.allTransactions.isEmpty) {
-                            return Expanded(child: NoTransacionsWidget());
+                            return Expanded(child: NoTransactionsWidget());
                           }
                           return Expanded(
                             child: ListView.builder(
@@ -110,33 +111,6 @@ class TransactionsView extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class NoTransacionsWidget extends StatelessWidget {
-  const NoTransacionsWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.receipt_long_outlined,
-            size: 64,
-            color: Colors.grey.shade400,
-          ),
-          verticalSpacing(16),
-          Text(
-            LocaleKeys.no_transactions.tr(),
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium?.copyWith(color: Colors.grey.shade600),
           ),
         ],
       ),
