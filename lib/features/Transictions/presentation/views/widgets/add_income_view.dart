@@ -37,7 +37,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
     super.dispose();
   }
 
-  void _saveIncome() {
+  void _saveIncome() async {
     final amount = amountController.text.trim();
     final title = titleController.text.trim();
     final message = messageController.text.trim();
@@ -49,7 +49,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
       return;
     }
 
-    context.read<TransactionsCubit>().addTransactions(
+    await context.read<TransactionsCubit>().addTransactions(
       txModel: TransactionModel(
         title: title,
         category: selectedCategory!,
@@ -60,6 +60,7 @@ class _AddIncomeViewState extends State<AddIncomeView> {
         note: message,
       ),
     );
+    await context.read<HomeCubit>().getNumbersDetails();
   }
 
   @override
@@ -125,7 +126,6 @@ class _AddIncomeViewState extends State<AddIncomeView> {
                               context
                                   .read<TransactionsCubit>()
                                   .getAllTransactions();
-                              context.read<HomeCubit>().getNumbersDetails();
                             } else if (state is TransactionsError) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(state.message)),

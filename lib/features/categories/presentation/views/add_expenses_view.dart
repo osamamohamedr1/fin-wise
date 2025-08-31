@@ -52,7 +52,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
 
     if (amount.isEmpty || selectedDate == null || selectedCategory == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please fill in all required fields")),
+        SnackBar(content: Text(LocaleKeys.please_fill_fields.tr())),
       );
       return;
     }
@@ -68,6 +68,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
         note: message,
       ),
     );
+    context.read<HomeCubit>().getNumbersDetails();
   }
 
   @override
@@ -134,7 +135,6 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                                   .getCategoryExpenses(
                                     category: selectedCategory!,
                                   );
-                              context.read<HomeCubit>().getNumbersDetails();
                             } else if (state is CategoriesError) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(state.message)),

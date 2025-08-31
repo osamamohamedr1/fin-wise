@@ -85,7 +85,7 @@ class TransactionsCubit extends Cubit<TransactionsState> {
       await transactionService.addTransaction(txModel: txModel);
       emit(TransactionsAdded());
 
-      getAllTransactions();
+      await getAllTransactions();
     } catch (e) {
       emit(TransactionsError(message: e.toString()));
     }
