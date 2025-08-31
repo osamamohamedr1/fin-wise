@@ -1,5 +1,4 @@
 import 'package:finance_wise/generated/locale_keys.g.dart';
-import 'package:flutter/material.dart';
 
 class FinancialCalculator {
   static double calculateExpensePercentage(double income, double expense) {
@@ -8,18 +7,6 @@ class FinancialCalculator {
     }
     final percentage = expense / income;
     return percentage > 1.0 ? 1.0 : percentage;
-  }
-
-  static Color getProgressBarColor(double income, double expense) {
-    final percentage = calculateExpensePercentage(income, expense);
-
-    if (percentage <= 0.5) {
-      return Colors.green;
-    } else if (percentage <= 0.75) {
-      return Colors.orange;
-    } else {
-      return Colors.red;
-    }
   }
 
   static int getExpensePercentageAsInt(double income, double expense) {

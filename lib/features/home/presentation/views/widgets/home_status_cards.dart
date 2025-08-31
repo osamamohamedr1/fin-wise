@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/routing/routes.dart';
 import 'package:finance_wise/core/utils/assets.dart';
+import 'package:finance_wise/core/utils/extensions.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
 import 'package:finance_wise/features/home/presentation/views/widgets/saving_card_widget.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
@@ -17,7 +19,14 @@ class HomeStatusCards extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(child: SavingCardWidget()),
+            Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  context.pushNamed(Routes.savingsView);
+                },
+                child: SavingCardWidget(),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SvgPicture.asset(Assets.svgsVline, height: 110),
