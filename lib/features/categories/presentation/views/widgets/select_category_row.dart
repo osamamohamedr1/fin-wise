@@ -38,10 +38,14 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBackground
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -55,7 +59,9 @@ class _SelectCategoryRowState extends State<SelectCategoryRow> {
                     : FontWeight.w500,
                 color: widget.selectedCategory == null
                     ? ColorsManager.mainGreen
-                    : ColorsManager.darkContainer,
+                    : isDarkMode
+                    ? ColorsManager.lightBackground
+                    : ColorsManager.darkBackground,
                 fontSize: 14,
               ),
             ),

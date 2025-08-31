@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectIncomeCategoryRow extends StatefulWidget {
   final Function(String?) onCategoryChanged;
@@ -21,32 +22,42 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
   ];
   String? selectedCategory;
 
+  String _getDisplayText() {
+    if (selectedCategory == null) {
+      return LocaleKeys.select_category.tr();
+    }
+    return selectedCategory!.tr();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBackground
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
         children: [
           Expanded(
             child: Text(
-              LocaleKeys.select_category.tr(),
+              _getDisplayText(),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontWeight: selectedCategory == null
-                    ? FontWeight.normal
-                    : FontWeight.w500,
-                color: selectedCategory == null
-                    ? ColorsManager.mainGreen
-                    : ColorsManager.darkContainer,
-                fontSize: 14,
+                fontWeight: FontWeight.normal,
+                color: isDarkMode
+                    ? ColorsManager.lightBackground
+                    : ColorsManager.mainGreen,
+
+                fontSize: 14.sp,
               ),
             ),
           ),
           DropdownButton<String>(
-            value: selectedCategory,
+            value: null,
             underline: const SizedBox.shrink(),
             items: categories
                 .map(

@@ -75,6 +75,7 @@ class _AddExpensesViewState extends State<AddExpensesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(LocaleKeys.add_expenses.tr()),
         centerTitle: true,
         automaticallyImplyLeading: true,
@@ -124,11 +125,6 @@ class _AddExpensesViewState extends State<AddExpensesView> {
                         child: BlocListener<CategoriesCubit, CategoriesState>(
                           listener: (context, state) {
                             if (state is CategoriesTxAdded) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(LocaleKeys.expense_saved.tr()),
-                                ),
-                              );
                               context.pop();
                               context
                                   .read<CategoriesCubit>()

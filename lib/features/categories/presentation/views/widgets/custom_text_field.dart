@@ -20,6 +20,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return TextField(
       controller: controller,
       readOnly: readOnly,
@@ -27,7 +29,9 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       style: Theme.of(context).textTheme.bodySmall?.copyWith(
         fontWeight: FontWeight.w500,
-        color: ColorsManager.darkContainer,
+        color: isDarkMode
+            ? ColorsManager.lightBackground
+            : ColorsManager.darkBackground,
         fontSize: 13,
       ),
       decoration: InputDecoration(
@@ -38,7 +42,9 @@ class CustomTextField extends StatelessWidget {
           fontSize: 12,
         ),
         filled: true,
-        fillColor: ColorsManager.lightGreen,
+        fillColor: isDarkMode
+            ? ColorsManager.darkBackground
+            : ColorsManager.lightGreen,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 12,

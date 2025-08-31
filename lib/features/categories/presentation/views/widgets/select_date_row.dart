@@ -22,10 +22,14 @@ class SelectDateWidget extends StatefulWidget {
 class _SelectDateWidgetState extends State<SelectDateWidget> {
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14, vertical: 9),
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBackground
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -44,6 +48,8 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                     : FontWeight.w500,
                 color: widget.selectedDate == null
                     ? ColorsManager.mainGreen
+                    : isDarkMode
+                    ? ColorsManager.lightBackground
                     : ColorsManager.darkContainer,
               ),
             ),
