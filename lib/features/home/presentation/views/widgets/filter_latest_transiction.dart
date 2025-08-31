@@ -43,13 +43,13 @@ class _FilterLastTransactionsState extends State<FilterLastTransactions> {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      height: 70.h,
+      height: 65.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: isDarkMode
             ? ColorsManager.darkBottomBar
             : ColorsManager.lightGreen,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

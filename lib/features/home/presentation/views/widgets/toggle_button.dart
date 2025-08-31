@@ -21,7 +21,7 @@ class ToggleButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
           color: isSelected ? ColorsManager.mainGreen : Colors.transparent,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(14),
         ),
         child: Text(label, style: Theme.of(context).textTheme.bodyMedium),
       ),
