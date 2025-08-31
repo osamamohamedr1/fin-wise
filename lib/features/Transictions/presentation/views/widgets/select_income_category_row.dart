@@ -48,7 +48,9 @@ class _SelectIncomeCategoryRowState extends State<SelectIncomeCategoryRow> {
               _getDisplayText(),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.normal,
-                color: isDarkMode
+                color: selectedCategory == null
+                    ? ColorsManager.mainGreen
+                    : isDarkMode
                     ? ColorsManager.lightBackground
                     : ColorsManager.mainGreen,
 

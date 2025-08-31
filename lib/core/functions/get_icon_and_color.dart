@@ -34,7 +34,7 @@ String getDefaultIcon(String category) {
       return Assets.svgsCar;
     case 'fother':
     case 'other':
-      return Assets.svgsMore;
+      return Assets.svgsTransaction;
     default:
       return Assets.svgsTransaction;
   }

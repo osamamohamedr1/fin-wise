@@ -49,9 +49,13 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -60,7 +64,11 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
         children: [
           IconButton(
             onPressed: () => _changeMonth(-1),
-            icon: const Icon(Icons.arrow_back_ios, size: 20),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+            ),
           ),
           Expanded(
             child: GestureDetector(
@@ -77,12 +85,24 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
                         context.locale.languageCode,
                       ).format(selectedDate),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
+                        color: isDarkMode
+                            ? Colors.white
+                            : ColorsManager.darkContainer,
                       ),
                     ),
-                    SvgPicture.asset(Assets.svgsCalender, width: 22),
+                    SvgPicture.asset(
+                      Assets.svgsCalender,
+                      width: 22,
+                      colorFilter: ColorFilter.mode(
+                        isDarkMode
+                            ? Colors.white70
+                            : ColorsManager.darkContainer,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -90,7 +110,11 @@ class _MonthChangeRowState extends State<MonthChangeRow> {
           ),
           IconButton(
             onPressed: () => _changeMonth(1),
-            icon: const Icon(Icons.arrow_forward_ios, size: 20),
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              size: 20,
+              color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+            ),
           ),
         ],
       ),

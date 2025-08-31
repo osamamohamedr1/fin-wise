@@ -17,14 +17,20 @@ class IncomeExpenseChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: ColorsManager.lightGreen,
+        color: isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightGreen,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade100,
+            color: isDarkMode
+                ? ColorsManager.darkBackground
+                : Colors.grey.shade100,
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -37,14 +43,12 @@ class IncomeExpenseChart extends StatelessWidget {
             '${LocaleKeys.income.tr()} & ${LocaleKeys.expense.tr()}',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w600,
-              color: ColorsManager.darkContainer,
+              color: isDarkMode ? Colors.white : ColorsManager.darkContainer,
             ),
           ),
           verticalSpacing(20),
           SizedBox(
-            height:
-                MediaQuery.sizeOf(context).height *
-                0.28, // Increased height for better tooltip space
+            height: MediaQuery.sizeOf(context).height * 0.28,
             width: double.infinity,
             child: BlocBuilder<AnalysisCubit, AnalysisState>(
               builder: (context, state) {
@@ -74,7 +78,7 @@ class IncomeExpenseChart extends StatelessWidget {
                       child: BarChart(
                         BarChartData(
                           alignment: BarChartAlignment.spaceAround,
-                          maxY: responsiveMaxY + 4000,
+                          maxY: responsiveMaxY,
                           minY: 0,
                           titlesData: FlTitlesData(
                             show: true,
@@ -87,7 +91,8 @@ class IncomeExpenseChart extends StatelessWidget {
                             bottomTitles: AxisTitles(
                               sideTitles: SideTitles(
                                 showTitles: true,
-                                getTitlesWidget: getTitles,
+                                getTitlesWidget: (value, meta) =>
+                                    getTitles(value, meta, context),
                                 reservedSize: 38,
                               ),
                             ),
@@ -98,7 +103,7 @@ class IncomeExpenseChart extends StatelessWidget {
 
                                 interval: responsiveInterval,
                                 getTitlesWidget: (value, meta) =>
-                                    leftTitleWidgets(value, meta),
+                                    leftTitleWidgets(value, meta, context),
                               ),
                             ),
                           ),
@@ -109,7 +114,9 @@ class IncomeExpenseChart extends StatelessWidget {
                             horizontalInterval: responsiveInterval,
                             getDrawingHorizontalLine: (value) {
                               return FlLine(
-                                color: Colors.grey.shade300,
+                                color: isDarkMode
+                                    ? Colors.grey.shade600
+                                    : Colors.grey.shade300,
                                 strokeWidth: 1,
                               );
                             },
@@ -119,7 +126,9 @@ class IncomeExpenseChart extends StatelessWidget {
                           barTouchData: BarTouchData(
                             enabled: true,
                             touchTooltipData: BarTouchTooltipData(
-                              getTooltipColor: (group) => Colors.black87,
+                              getTooltipColor: (group) => isDarkMode
+                                  ? ColorsManager.darkContainer
+                                  : Colors.black87,
                               tooltipRoundedRadius: 8,
                               tooltipPadding: EdgeInsets.all(8.w),
                               fitInsideHorizontally: true,
@@ -159,9 +168,10 @@ class IncomeExpenseChart extends StatelessWidget {
     );
   }
 
-  Widget leftTitleWidgets(double value, TitleMeta meta) {
+  Widget leftTitleWidgets(double value, TitleMeta meta, BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final style = TextStyle(
-      color: ColorsManager.darkContainer,
+      color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
       fontWeight: FontWeight.w400,
       fontSize: 10.sp,
     );
@@ -195,9 +205,10 @@ class IncomeExpenseChart extends StatelessWidget {
     );
   }
 
-  Widget getTitles(double value, TitleMeta meta) {
+  Widget getTitles(double value, TitleMeta meta, BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final style = TextStyle(
-      color: ColorsManager.darkContainer,
+      color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
       fontWeight: FontWeight.w500,
       fontSize: 9.sp,
     );

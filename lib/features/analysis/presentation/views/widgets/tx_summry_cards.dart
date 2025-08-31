@@ -20,11 +20,14 @@ class SummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
+        color: isDarkMode ? ColorsManager.darkBackground : Colors.transparent,
         borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(color: color, width: .2),
+        border: Border.all(color: isDarkMode ? color : color, width: .1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +42,7 @@ class SummaryCard extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: ColorsManager.darkContainer,
+              color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
               fontWeight: FontWeight.w500,
             ),
           ),
