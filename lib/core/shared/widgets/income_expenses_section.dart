@@ -13,6 +13,7 @@ class IncomeExpensesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * .8,
       child: BlocBuilder<HomeCubit, HomeState>(
@@ -35,8 +36,12 @@ class IncomeExpensesSection extends StatelessWidget {
                         state.income,
                         state.expense,
                       ),
-                      backgroundColor: Colors.white,
-                      color: ColorsManager.darkContainer,
+                      backgroundColor: isDarkMode
+                          ? ColorsManager.darkBottomBar
+                          : ColorsManager.lightBackground,
+                      color: isDarkMode
+                          ? ColorsManager.mainGreen
+                          : ColorsManager.darkContainer,
                     ),
 
                     Positioned(
@@ -45,7 +50,9 @@ class IncomeExpensesSection extends StatelessWidget {
                       child: Text(
                         '${FinancialCalculator.getExpensePercentageAsInt(state.income, state.expense)}%',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: ColorsManager.darkContainer,
+                          color: !isDarkMode
+                              ? ColorsManager.darkContainer
+                              : ColorsManager.lightBackground,
                         ),
                       ),
                     ),

@@ -16,6 +16,7 @@ class TransactionListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -24,30 +25,32 @@ class TransactionListItem extends StatelessWidget {
         spacing: 12,
         children: [
           TransictionIcon(transaction: transaction),
-          Column(
-            spacing: 4,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                transaction.title.isNotEmpty
-                    ? transaction.title
-                    : transaction.category.tr(),
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
+          Expanded(
+            child: Column(
+              spacing: 4,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  transaction.title.isNotEmpty
+                      ? transaction.title
+                      : transaction.category.tr(),
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                  ),
                 ),
-              ),
 
-              Text(
-                formatDate(transaction.date, context),
+                Text(
+                  formatDate(transaction.date, context),
 
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: ColorsManager.blue,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: ColorsManager.blue,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SvgPicture.asset(Assets.svgsVline),
           SizedBox(
@@ -70,7 +73,9 @@ class TransactionListItem extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: transaction.isExpense
                       ? Colors.red
-                      : ColorsManager.darkContainer,
+                      : isDarkMode
+                      ? ColorsManager.lightBackground
+                      : ColorsManager.darkBackground,
                 ),
               ),
             ),

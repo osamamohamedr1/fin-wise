@@ -21,7 +21,7 @@ class SavingCardWidget extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.075,
                 width: MediaQuery.sizeOf(context).height * 0.075,
                 child: CircularProgressIndicator(
-                  value: .5,
+                  value: 0,
                   strokeWidth: 3,
                   color: ColorsManager.blue,
                   backgroundColor: ColorsManager.lightBackground,
@@ -30,9 +30,9 @@ class SavingCardWidget extends StatelessWidget {
             ),
 
             Positioned(
-              top: 17,
-              left: 24,
-              child: SvgPicture.asset(Assets.svgsCar, width: 45),
+              top: 15,
+              left: 30,
+              child: SvgPicture.asset(Assets.svgsSavings, width: 35),
             ),
           ],
         ),

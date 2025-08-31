@@ -48,7 +48,7 @@ class HomeStatusCards extends StatelessWidget {
                   ListTile(
                     dense: true,
                     contentPadding: EdgeInsets.zero,
-                    leading: SvgPicture.asset(Assets.svgsExpense, width: 21),
+                    leading: SvgPicture.asset(Assets.svgsIncome, width: 21),
                     title: Text(
                       LocaleKeys.expenses_last_month.tr(),
                       style: TextStyle(fontSize: 12),
