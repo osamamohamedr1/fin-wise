@@ -1,0 +1,39 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/utils/assets.dart';
+import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/core/utils/spacing.dart';
+import 'package:finance_wise/generated/locale_keys.g.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class NoTransactionsWidget extends StatelessWidget {
+  const NoTransactionsWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            Assets.svgsTransaction,
+            colorFilter: ColorFilter.mode(
+              isDarkMode
+                  ? ColorsManager.lightGreen
+                  : ColorsManager.darkBackground,
+              BlendMode.srcIn,
+            ),
+          ),
+          verticalSpacing(16),
+          Text(
+            LocaleKeys.no_transactions.tr(),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
+    );
+  }
+}

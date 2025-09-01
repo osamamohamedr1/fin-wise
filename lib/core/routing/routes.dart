@@ -8,4 +8,9 @@ class Routes {
   static const String reports = '/reports';
   static const String budget = '/budget';
   static const String profile = '/profile';
+  static const String categoryExpensesDetails = '/categoryExpensesDetails';
+  static const String addExpenses = '/addExpenses';
+  static const String addIncome = '/addIncome';
+  static const String savingsView = '/savingsView';
+  static const String pinView = '/pinView';
 }

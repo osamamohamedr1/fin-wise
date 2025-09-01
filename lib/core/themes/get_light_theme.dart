@@ -1,9 +1,11 @@
 import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData getLightTheme() {
   return ThemeData(
-    iconTheme: const IconThemeData(color: ColorsManager.darkIcon),
+    fontFamily: 'Poppins',
+    iconTheme: const IconThemeData(color: ColorsManager.darkContainer),
     scaffoldBackgroundColor: ColorsManager.mainGreen,
     brightness: Brightness.light,
     primaryColor: ColorsManager.mainGreen,
@@ -11,34 +13,46 @@ ThemeData getLightTheme() {
       primary: ColorsManager.mainGreen,
       secondary: ColorsManager.blue,
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: ColorsManager.mainGreen,
-      iconTheme: IconThemeData(color: ColorsManager.darkIcon),
+      iconTheme: IconThemeData(color: ColorsManager.darkContainer),
       titleTextStyle: TextStyle(
-        color: ColorsManager.darkIcon,
-        fontSize: 20,
+        color: ColorsManager.darkContainer,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
+      //
       titleLarge: TextStyle(
-        color: ColorsManager.darkIcon,
-        fontSize: 30,
+        color: Colors.white,
+        fontSize: 24.sp,
         fontWeight: FontWeight.bold,
       ),
+      //
       titleMedium: TextStyle(
-        color: ColorsManager.darkIcon,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
+        color: ColorsManager.darkContainer,
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w600,
       ),
       titleSmall: TextStyle(
-        color: ColorsManager.darkIcon,
-        fontSize: 20,
+        color: ColorsManager.darkContainer,
+        fontSize: 14.sp,
         fontWeight: FontWeight.bold,
       ),
-      bodyLarge: TextStyle(color: ColorsManager.darkIcon, fontSize: 18),
-      bodyMedium: TextStyle(color: ColorsManager.darkIcon, fontSize: 16),
-      bodySmall: TextStyle(color: Colors.grey, fontSize: 14),
+      bodyLarge: TextStyle(color: ColorsManager.darkContainer, fontSize: 18.sp),
+
+      bodyMedium: TextStyle(
+        color: ColorsManager.darkBackground,
+        fontSize: 15.sp,
+        fontWeight: FontWeight.w500,
+      ),
+      //
+      bodySmall: TextStyle(
+        color: ColorsManager.darkContainer,
+        fontSize: 14.sp,
+        fontWeight: FontWeight.normal,
+      ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 0,
@@ -46,8 +60,8 @@ ThemeData getLightTheme() {
       showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed,
       selectedIconTheme: IconThemeData(size: 30),
-      selectedItemColor: ColorsManager.darkIcon,
-      unselectedItemColor: ColorsManager.darkIcon,
+      selectedItemColor: ColorsManager.darkContainer,
+      unselectedItemColor: ColorsManager.darkContainer,
       backgroundColor: Colors.transparent,
     ),
   );

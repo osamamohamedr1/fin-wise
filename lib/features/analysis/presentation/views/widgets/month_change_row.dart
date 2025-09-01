@@ -1,0 +1,123 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:finance_wise/core/utils/assets.dart';
+import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:month_picker_dialog/month_picker_dialog.dart';
+
+class MonthChangeRow extends StatefulWidget {
+  const MonthChangeRow({super.key});
+
+  @override
+  State<MonthChangeRow> createState() => _MonthChangeRowState();
+}
+
+class _MonthChangeRowState extends State<MonthChangeRow> {
+  DateTime selectedDate = DateTime.now();
+
+  void _changeMonth(int monthOffset) {
+    setState(() {
+      selectedDate = DateTime(
+        selectedDate.year,
+        selectedDate.month + monthOffset,
+        1,
+      );
+    });
+
+    context.read<AnalysisCubit>().loadDailyChart(selectedDate);
+  }
+
+  Future<void> _showDatePicker() async {
+    final DateTime? picked = await showMonthPicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+
+      // ignore: use_build_context_synchronously
+      context.read<AnalysisCubit>().loadDailyChart(selectedDate);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: isDarkMode
+            ? ColorsManager.darkBottomBar
+            : ColorsManager.lightGreen,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            onPressed: () => _changeMonth(-1),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: _showDatePicker,
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 10,
+                  children: [
+                    Text(
+                      DateFormat(
+                        'MMM yyyy',
+                        context.locale.languageCode,
+                      ).format(selectedDate),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: isDarkMode
+                            ? Colors.white
+                            : ColorsManager.darkContainer,
+                      ),
+                    ),
+                    SvgPicture.asset(
+                      Assets.svgsCalender,
+                      width: 22,
+                      colorFilter: ColorFilter.mode(
+                        isDarkMode
+                            ? Colors.white70
+                            : ColorsManager.darkContainer,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          IconButton(
+            onPressed: () => _changeMonth(1),
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              size: 20,
+              color: isDarkMode ? Colors.white70 : ColorsManager.darkContainer,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

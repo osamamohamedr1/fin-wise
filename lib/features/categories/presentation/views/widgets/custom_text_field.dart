@@ -1,0 +1,59 @@
+import 'package:finance_wise/core/utils/colors_manager.dart';
+import 'package:flutter/material.dart';
+
+class CustomTextField extends StatelessWidget {
+  final String? hintText;
+  final TextEditingController? controller;
+  final bool readOnly;
+  final int maxLines;
+  final TextInputType keyboardType;
+
+  const CustomTextField({
+    super.key,
+
+    this.hintText,
+    this.controller,
+    this.readOnly = false,
+    this.maxLines = 1,
+    this.keyboardType = TextInputType.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return TextField(
+      controller: controller,
+      readOnly: readOnly,
+      maxLines: maxLines,
+      keyboardType: keyboardType,
+      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        fontWeight: FontWeight.w500,
+        color: isDarkMode
+            ? ColorsManager.lightBackground
+            : ColorsManager.darkBackground,
+        fontSize: 13,
+      ),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+          fontWeight: FontWeight.w500,
+          color: ColorsManager.mainGreen,
+          fontSize: 12,
+        ),
+        filled: true,
+        fillColor: isDarkMode
+            ? ColorsManager.darkBackground
+            : ColorsManager.lightGreen,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(22),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+}
