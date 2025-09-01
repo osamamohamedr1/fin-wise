@@ -14,7 +14,6 @@ A comprehensive personal finance management application built with Flutter that 
 - **Visual Charts**: Interactive charts powered by FL Chart
 - **Spending Analysis**: Detailed breakdown of expenses by category
 - **Financial Reports**: Monthly and yearly financial summaries
-- **Trend Analysis**: Track spending patterns over time
 
 ### 🎨 User Experience
 - **Dark/Light Theme**: Adaptive themes for comfortable viewing
@@ -65,8 +64,7 @@ lib/
 - **[ScreenUtil](https://pub.dev/packages/flutter_screenutil)** - Responsive design
 
 ## 📸 Screenshots
-
-*Screenshots coming soon...*
+<img width="1600" height="900" alt="Fin Wise" src="https://github.com/user-attachments/assets/cbdac335-903f-4969-8d36-cb850fb5e84e" />
 
 
 ## 👤 Author
