@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const welcome = 'welcome';
   static const quote = 'quote';
   static const total_balance = 'total_balance';
@@ -51,7 +51,7 @@ abstract class LocaleKeys {
   static const new_home = 'new_home';
   static const car = 'car';
   static const expense_saved = 'expense_saved';
-  static const analysis = 'analysis';
+  static const fanalysis = 'fanalysis';
   static const category = 'category';
   static const categories = 'categories';
   static const save_expense = 'save_expense';
@@ -114,4 +114,5 @@ abstract class LocaleKeys {
   static const choose_security_method = 'choose_security_method';
   static const secure_and_private = 'secure_and_private';
   static const pin_encryption_info = 'pin_encryption_info';
+
 }

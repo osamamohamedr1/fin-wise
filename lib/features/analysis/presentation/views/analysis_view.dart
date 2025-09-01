@@ -20,7 +20,7 @@ class _AnalysisViewState extends State<AnalysisView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.analysis.tr()),
+        title: Text(LocaleKeys.fanalysis.tr()),
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),
