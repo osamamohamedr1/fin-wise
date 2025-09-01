@@ -30,7 +30,14 @@ class AddSavingsView extends StatelessWidget {
                   mainAxisExtent: MediaQuery.sizeOf(context).width * 0.34,
                 ),
                 itemBuilder: (context, index) {
-                  return CategoryCard(category: savingsList[index]);
+                  return GestureDetector(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(LocaleKeys.coming_soon.tr())),
+                      );
+                    },
+                    child: CategoryCard(category: savingsList[index]),
+                  );
                 },
               ),
             ),

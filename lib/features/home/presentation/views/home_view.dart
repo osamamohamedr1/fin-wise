@@ -35,16 +35,23 @@ class HomeView extends StatelessWidget {
             ],
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CircleAvatar(
-                backgroundColor: ColorsManager.lightBackground,
-                radius: 17,
-                child: Center(
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    size: 24,
-                    color: ColorsManager.darkContainer,
+            GestureDetector(
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(LocaleKeys.coming_soon.tr())),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: CircleAvatar(
+                  backgroundColor: ColorsManager.lightBackground,
+                  radius: 17,
+                  child: Center(
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      size: 24,
+                      color: ColorsManager.darkContainer,
+                    ),
                   ),
                 ),
               ),
