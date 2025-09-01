@@ -3,10 +3,12 @@ import 'package:finance_wise/core/models/transaction_model.dart';
 import 'package:finance_wise/core/utils/constants.dart';
 import 'package:finance_wise/finance_tracker.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(TransactionModelAdapter());
