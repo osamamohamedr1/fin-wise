@@ -1,10 +1,10 @@
 import 'package:finance_wise/core/utils/assets.dart';
 import 'package:finance_wise/core/utils/colors_manager.dart';
-import 'package:finance_wise/features/transictions/presentation/views/transictions_view.dart';
 import 'package:finance_wise/features/analysis/presentation/views/analysis_view.dart';
 import 'package:finance_wise/features/categories/presentation/views/categories_view.dart';
 import 'package:finance_wise/features/home/presentation/views/home_view.dart';
 import 'package:finance_wise/features/profile/presentation/views/profile_view.dart';
+import 'package:finance_wise/features/transactions/presentation/views/transictions_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
