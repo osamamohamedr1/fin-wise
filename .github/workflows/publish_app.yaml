@@ -1,0 +1,38 @@
+name: Publish App to Firebase.apk
+
+on:
+  workflow_dispatch:
+    inputs:
+      type_of_build:
+        description: "choose build type"
+        required: true
+        default: "release"
+        type: choice
+        options:
+        - release
+        - debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v5.0.0
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.21.0
+
+      - name: Install dependencies
+        run: flutter pub get    
+
+      - name: Build Apk
+        run: flutter build apk --${{ github.event.inputs.type_of_build }}
+
+
+      - name: Upload to Firebase
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-${{ github.event.inputs.type_of_build }}      
