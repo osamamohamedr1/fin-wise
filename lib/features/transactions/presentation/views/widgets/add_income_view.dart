@@ -7,10 +7,11 @@ import 'package:finance_wise/core/utils/colors_manager.dart';
 import 'package:finance_wise/core/utils/spacing.dart';
 import 'package:finance_wise/features/analysis/presentation/manager/cubit/analysis_cubit.dart';
 import 'package:finance_wise/features/home/presentation/manger/cubit/home_cubit.dart';
-import 'package:finance_wise/features/transictions/presentation/manager/transactions_cubit/transaction_cubit.dart';
-import 'package:finance_wise/features/transictions/presentation/views/widgets/select_income_category_row.dart';
+
 import 'package:finance_wise/features/categories/presentation/views/widgets/select_date_row.dart';
-import 'package:finance_wise/features/transictions/presentation/views/widgets/income_form.dart';
+import 'package:finance_wise/features/transactions/presentation/manager/transactions_cubit/transaction_cubit.dart';
+import 'package:finance_wise/features/transactions/presentation/views/widgets/income_form.dart';
+import 'package:finance_wise/features/transactions/presentation/views/widgets/select_income_category_row.dart';
 import 'package:finance_wise/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
