@@ -1,3 +1,5 @@
+
+
 {
   "project_info": {
     "project_number": "680584139861",
@@ -10,6 +12,25 @@
         "mobilesdk_app_id": "1:680584139861:android:2e257d2d2187a5438c30dc",
         "android_client_info": {
           "package_name": "com.example.finance_wise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw3Ad0s647QH_0-D-wSm38azgdmci897A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680584139861:android:5214633249ef44618c30dc",
+        "android_client_info": {
+          "package_name": "com.example.finance_wise.dev"
         }
       },
       "oauth_client": [],

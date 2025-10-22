@@ -32,6 +32,24 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+     flavorDimensions += "default"
+    productFlavors {
+        create("development") {
+            dimension = "default"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fin wise Development")
+            applicationIdSuffix = ".dev"
+        }
+        create("production") {
+            dimension = "default"
+              resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fin wise production")
+        }
+    }
 
     buildTypes {
         release {
