@@ -53,7 +53,6 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAw3Ad0s647QH_0-D-wSm38azgdmci897A',
     appId: '1:680584139861:android:2e257d2d2187a5438c30dc',
-
     messagingSenderId: '680584139861',
     projectId: 'test-cicd-finwise',
     storageBucket: 'test-cicd-finwise.firebasestorage.app',
